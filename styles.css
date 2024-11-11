@@ -1,0 +1,67 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-image: url('pictures/Lake/IMG_6304.JPG'); /* Replace with your background image */
+    background-size: cover;
+    color: #333;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent header */
+}
+
+nav a {
+    margin: 0 15px;
+    text-decoration: none;
+    color: #fff;
+    font-weight: bold;
+}
+
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: calc(100vh - 60px); /* Adjust height based on header */
+}
+
+.about {
+    text-align: center;
+    color: #2e3a4a; /* Dark blue color */
+}
+
+.about h1 {
+    font-size: 3em;
+    margin-bottom: 20px;
+}
+
+.about-card {
+    background-color: #2e3a4a; /* Dark card background */
+    padding: 40px;
+    border-radius: 8px;
+    width: 300px;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.profile-image {
+    width: 100px;
+    height: 100px;
+    background-color: #ccc;
+    border-radius: 50%;
+    margin-bottom: 20px;
+}
+
+.about-card p {
+    font-size: 1em;
+    text-align: center;
+}
