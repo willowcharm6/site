@@ -144,10 +144,10 @@ body.ocean{
 }
 
 /* Positioning each image within the stacked gallery */
-.image-card:nth-child(1) { top: 1755px; left: 327px; }
-.image-card:nth-child(2) { top: 969px; left: 208px; }
-.image-card:nth-child(3) { top: 1062px; left: 869px; }
-.image-card:nth-child(4) { top: 1308px; left: 509px; }
+.image-card:nth-child(1) { top: 1690px; left: 370px; }
+.image-card:nth-child(2) { top: 904px; left: 251px; }
+.image-card:nth-child(3) { top: 997px; left: 912px; }
+.image-card:nth-child(4) { top: 1243px; left: 552px; }
 
 /* Hover effect */
 .image-card:hover {
