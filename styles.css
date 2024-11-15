@@ -165,10 +165,11 @@ main {
     object-fit: cover;
 }
 
-.image-card:nth-child(1) { top: 1690px; left: 370px; }
-.image-card:nth-child(2) { top: 904px; left: 251px; }
-.image-card:nth-child(3) { top: 997px; left: 912px; }
-.image-card:nth-child(4) { top: 1243px; left: 552px; }
+/* Set image coordinates as percentages */
+.image-card:nth-child(1) { top: 165%; left: 25.7%; position: absolute;}
+.image-card:nth-child(2) { top: 88.3%; left: 17.4%; position: absolute;}
+.image-card:nth-child(3) { top: 97.36%; left: 63.3%; position: absolute;}
+.image-card:nth-child(4) { top: 121.3%; left: 38.3%; position: absolute;}
 
 /* Hover Effect */
 .image-card:hover {
