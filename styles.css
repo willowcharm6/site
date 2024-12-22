@@ -98,7 +98,8 @@ main {
     background-color: #2e3a4a;
     padding: 40px;
     border-radius: 8px;
-    width: 300px;
+    width: 575px;
+    height: 500px;
     color: #fff;
     display: flex;
     flex-direction: column;
@@ -106,13 +107,14 @@ main {
 }
 
 .about-card img {
-    max-width: 150px;
-    border-radius: 8px;
+    width: 256px;
+    border-radius: 128px;
     margin-bottom: 10px;
 }
 
 .about-card p {
-    font-size: 1em;
+    padding-top: 50px;
+    font-size: 1.25em;
     text-align: center;
 }
 
