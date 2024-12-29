@@ -217,6 +217,58 @@ main {
     margin-left: 20px;
 }
 
+/* Shore */
+/* Gallery layout */
+.gallery {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    width: 80%;
+    margin: 50px auto;
+    background-color: rgba(0, 0, 0, 0.7); /* Dark background */
+    padding: 20px;
+    border-radius: 10px;
+    color: white;
+}
+
+/* Arrow buttons */
+.arrow {
+    font-size: 2em;
+    background: none;
+    color: white;
+    border: none;
+    cursor: pointer;
+    padding: 10px 20px;
+    transition: transform 0.2s;
+}
+
+.arrow:hover {
+    transform: scale(1.2);
+}
+
+/* Image container */
+.image-container {
+    text-align: center;
+    flex-grow: 1;
+    max-width: 70%; /* Limit the image width */
+}
+
+.image-container img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 5px;
+}
+
+/* Caption styling */
+.image-container p {
+    margin-top: 10px;
+    font-size: 1.2em;
+    color: rgba(255, 255, 255, 0.8);
+    font-style: italic;
+}
+
+
 
 /* Responsive Design */
 @media (max-width: 768px) {

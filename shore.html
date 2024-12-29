@@ -26,9 +26,27 @@
     </header>
     
     <main>
-        <div class="portfolio">
-            <h1>Shore</h1>
+        <div class="gallery">
+            <button class="arrow left-arrow" onclick="prevImage()">&#10094;</button>
+            <div class="image-container">
+                <img id="gallery-image" src="banana.bread.png" alt="Banana Bread">
+                <p id="image-caption">Banana Bread</p>
+            </div>
+            <div class="image-container">
+                <img id="gallery-image" src="blueberry.lemon.loaf.png" alt="Blueberry Lemon Loaf">
+                <p id="image-caption">Blueberry Lemon Loaf</p>
+            </div>
+            <div class="image-container">
+                <img id="gallery-image" src="blueberry.muffins.png" alt="Blueberry Muffins">
+                <p id="image-caption">Blueberry Muffins</p>
+            </div>
+            <div class="image-container">
+                <img id="gallery-image" src="bluewhite.dress.png" alt="Cicely Dress">
+                <p id="image-caption">Cicely Dress</p>
+            </div>
+            <button class="arrow right-arrow" onclick="nextImage()">&#10095;</button>
+        </div>        
     </main>
-
+    <script src="gallery.js"></script>
 </body>
 </html>
