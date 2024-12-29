@@ -26,26 +26,40 @@
     </header>
     
     <main>
-        <div class="gallery">
+        <div class="carousel">
             <button class="arrow left-arrow" onclick="prevImage()">&#10094;</button>
-            <div class="image-container">
-                <img id="gallery-image" src="banana.bread.png" alt="Banana Bread">
-                <p id="image-caption">Banana Bread</p>
-            </div>
-            <div class="image-container">
-                <img id="gallery-image" src="blueberry.lemon.loaf.png" alt="Blueberry Lemon Loaf">
-                <p id="image-caption">Blueberry Lemon Loaf</p>
-            </div>
-            <div class="image-container">
-                <img id="gallery-image" src="blueberry.muffins.png" alt="Blueberry Muffins">
-                <p id="image-caption">Blueberry Muffins</p>
-            </div>
-            <div class="image-container">
-                <img id="gallery-image" src="bluewhite.dress.png" alt="Cicely Dress">
-                <p id="image-caption">Cicely Dress</p>
+            <div class="carousel-container">
+                <div class="carousel-slide">
+                    <div class="carousel-item">
+                        <img src="pictures/Portfolio/banana.bread.png" alt="Image 1">
+                        <div class="caption">Box 1</div>
+                    </div>
+                    <div class="carousel-item">
+                        <img src="pictures/Portfolio/blueberry.lemon.loaf.png" alt="Image 2">
+                        <div class="caption">Box 2</div>
+                    </div>
+                    <div class="carousel-item">
+                        <img src="pictures/Portfolio/blueberry.muffins.png" alt="Image 3">
+                        <div class="caption">Box 3</div>
+                    </div>
+                    <div class="carousel-item">
+                        <img src="pictures/Portfolio/bluewhite.dress.png" alt="Image 4">
+                        <div class="caption">Box 4</div>
+                    </div>
+                    <div class="carousel-item">
+                        <img src="pictures/Portfolio/chemise.png" alt="Image 5">
+                        <div class="caption">Box 5</div>
+                    </div>
+                    <div class="carousel-item">
+                        <img src="pictures/Portfolio/chicken.pot.pie.png" alt="Image 5">
+                        <div class="caption">Box 5</div>
+                    </div>
+                </div>
             </div>
             <button class="arrow right-arrow" onclick="nextImage()">&#10095;</button>
-        </div>        
+        </div>
+        
+        
     </main>
     <script src="gallery.js"></script>
 </body>
