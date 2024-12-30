@@ -257,7 +257,7 @@ main {
 .carousel-slide {
     display: flex;
     align-items: center;
-    gap: 20px; /* Add space between images */
+     /* Add space between images */
 }
 
 .carousel-item {
@@ -299,8 +299,6 @@ main {
     display: block;
     border-radius: 10px;
 }
-
-
 
 
 
