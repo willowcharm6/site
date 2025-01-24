@@ -1,9 +1,9 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2025.1.24)  24 JAN 2025 02:10
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2025.1.24)  24 JAN 2025 02:27
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
-**./resume.tex
-(resume.tex
+**./Charmaine_Guo_Resume.tex
+(Charmaine_Guo_Resume.tex
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-01-04>
 (resume.cls
@@ -158,8 +158,9 @@ tex.def
 File: l3backend-pdftex.def 2024-01-04 L3 backend support: PDF output (pdfTeX)
 \l__color_backend_stack_int=\count266
 \l__pdf_internal_box=\box53
-) (resume.aux)
-\openout1 = `resume.aux'.
+)
+No file Charmaine_Guo_Resume.aux.
+\openout1 = `Charmaine_Guo_Resume.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 24.
 LaTeX Font Info:    ... okay on input line 24.
@@ -261,26 +262,26 @@ LaTeX Font Info:    Font shape `OT1/EBGaramond-OsF/m/it' will be
 {C:/Users/charm/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}{C:/Users/char
 m/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/ebgaramond/ebg_qn2lct.enc}{C:/U
 sers/charm/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/ebgaramond/ebg_ne3tkd.
-enc}] (resume.aux)
+enc}] (Charmaine_Guo_Resume.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-01-04>
  ***********
  ) 
 Here is how much of TeX's memory you used:
- 3658 strings out of 474486
- 62681 string characters out of 5743755
+ 3656 strings out of 474486
+ 62734 string characters out of 5743755
  1933542 words of memory out of 5000000
- 25910 multiletter control sequences out of 15000+600000
+ 25909 multiletter control sequences out of 15000+600000
  567718 words of font info for 50 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 72i,6n,79p,502b,230s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 72i,6n,79p,516b,230s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <C:/Users/charm/AppData/Local/Programs/MiKTeX/fonts/type1/public/ebgaramond/E
 BGaramond-Bold.pfb><C:/Users/charm/AppData/Local/Programs/MiKTeX/fonts/type1/pu
 blic/ebgaramond/EBGaramond-Italic.pfb><C:/Users/charm/AppData/Local/Programs/Mi
 KTeX/fonts/type1/public/ebgaramond/EBGaramond-Regular.pfb><C:/Users/charm/AppDa
 ta/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
-Output written on resume.pdf (1 page, 78698 bytes).
+Output written on Charmaine_Guo_Resume.pdf (1 page, 78698 bytes).
 PDF statistics:
  28 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
