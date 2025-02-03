@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Zoo Exploration Game</title>
+  <link rel="stylesheet" href="lpz_game_styles.css">
+</head>
+<body>
+  <h1>Zoo Exploration Game</h1>
+  <div id="game-container">
+    <!-- Fact box for displaying fun facts -->
+    <div id="fact-box"></div>
+    <!-- Avatar that moves around the map -->
+    <div id="avatar" style="left: 50px; top: 50px;"></div>
+    <!-- Example hotspots with position and data attributes -->
+    <div class="hotspot" 
+         style="left: 200px; top: 150px; width: 50px; height: 50px;" 
+         data-fact="Lions are majestic predators that rule the savannah.">
+    </div>
+    <div class="hotspot" 
+         style="left: 400px; top: 300px; width: 50px; height: 50px;" 
+         data-fact="Giraffes have the longest necks and can reach high branches!">
+    </div>
+    <div class="hotspot" 
+         style="left: 250px; top: 373px; width: 50px; height: 50px;" 
+         data-livecam="true"
+         data-fact="Watch the seal (sea otter) enclosure live!">
+    </div>
+    <div class="hotspot" 
+         style="left: 600px; top: 100px; width: 50px; height: 50px;" 
+         data-livecam="true"
+         data-fact="Watch the panda enclosure live!">
+    </div>
+  </div>
+  
+<!-- Modal for the live cam -->
+<div id="liveCamModal" class="modal">
+    <div class="modal-content">
+      <span class="close-button">&times;</span>
+      <iframe src="https://www.youtube.com/watch?v=NqOmHpwMUxs" 
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+              allowfullscreen>
+      </iframe>
+    </div>
+  </div>
+  <script src="lpz_game_script.js"></script>
+
+</body>
+</html>

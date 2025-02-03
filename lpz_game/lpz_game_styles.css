@@ -1,0 +1,104 @@
+body {
+    margin: 0;
+    font-family: sans-serif;
+    background-color: #f0f0f0;
+  }
+  h1 {
+    text-align: center;
+    margin-top: 20px;
+  }
+  /* Container for the interactive map */
+  #game-container {
+    position: relative;
+    width: 755px;       /* Adjust as needed */
+    height: 1066px;      /* Adjust as needed */
+    background: url('lpz_map.jpg') no-repeat center center;
+    background-size: cover;
+    margin: 20px auto;
+    border: 2px solid #ccc;
+  }
+  /* Hotspot styling */
+  .hotspot {
+    position: absolute;
+    border: 2px solid rgba(255, 255, 255, 0.7);
+    border-radius: 50%;
+    background-color: rgba(0, 128, 0, 0.5);
+    cursor: pointer;
+    transition: transform 0.3s;
+  }
+  
+  /* New: Display fun fact text on hover */
+  .hotspot:hover::after {
+    content: attr(data-fact);
+    position: absolute;
+    left: 60px;
+    top: -10px;
+    background: rgba(255, 255, 255, 0.9);
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    white-space: nowrap;
+    z-index: 10;
+  }
+  /* Fact box styling */
+  #fact-box {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    background-color: rgba(255, 255, 255, 0.95);
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    display: none;
+    max-width: 300px;
+  }
+  /* Avatar that moves around the map */
+  #avatar {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    background: url('avatar_holder.jpg') no-repeat center center;
+    background-size: contain;
+    transition: left 0.5s, top 0.5s;
+    pointer-events: none;
+  }
+ /* Modal styling for live cam */
+ .modal {
+    display: none; /* Hidden by default */
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.7);
+  }
+  .modal-content {
+    position: relative;
+    margin: 10% auto;
+    padding: 0;
+    width: 80%;
+    max-width: 800px;
+    background-color: #fff;
+    border-radius: 5px;
+  }
+  .close-button {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    margin-right: 10px;
+    cursor: pointer;
+  }
+  .close-button:hover,
+  .close-button:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  .modal iframe {
+    width: 100%;
+    height: 450px;
+    border: none;
+  }
