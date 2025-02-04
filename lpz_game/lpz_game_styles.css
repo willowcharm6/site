@@ -17,6 +17,7 @@ body {
     margin: 20px auto;
     border: 2px solid #ccc;
   }
+  
   /* Hotspot styling */
   .hotspot {
     position: absolute;
@@ -27,7 +28,7 @@ body {
     transition: transform 0.3s;
   }
   
-  /* New: Display fun fact text on hover */
+  /* Display fun fact text on hover */
   .hotspot:hover::after {
     content: attr(data-fact);
     position: absolute;
@@ -40,6 +41,7 @@ body {
     white-space: nowrap;
     z-index: 10;
   }
+
   /* Fact box styling */
   #fact-box {
     position: absolute;
@@ -52,6 +54,7 @@ body {
     display: none;
     max-width: 300px;
   }
+
   /* Avatar that moves around the map */
   #avatar {
     position: absolute;
@@ -62,6 +65,7 @@ body {
     transition: left 0.5s, top 0.5s;
     pointer-events: none;
   }
+
  /* Modal styling for live cam */
  .modal {
     display: none; /* Hidden by default */
