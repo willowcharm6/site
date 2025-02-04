@@ -8,28 +8,34 @@ const closeButton = document.querySelector('.close-button');
 
 hotspots.forEach(hotspot => {
   hotspot.addEventListener('click', function() {
-    // Get the fun fact and live cam flag from the hotspot
+    // Check if this hotspot has a URL to redirect to.
+    const url = this.getAttribute('data-url');
+    if (url) {
+      window.location.href = url;
+      return;
+    }
+    // Existing behavior:
     const fact = this.getAttribute('data-fact');
     const showLiveCam = this.getAttribute('data-livecam');
-    
-    // Get the hotspot's position relative to the game container
+
+    // Get the hotspot's position relative to the game container.
     const rect = this.getBoundingClientRect();
     const containerRect = gameContainer.getBoundingClientRect();
     const targetLeft = rect.left - containerRect.left;
     const targetTop = rect.top - containerRect.top;
-    
-    // Move the avatar to the hotspot location
+
+    // Move the avatar to the hotspot location.
     avatar.style.left = targetLeft + 'px';
     avatar.style.top = targetTop + 'px';
-    
-    // Display the fun fact
+
+    // Display the fun fact.
     factBox.textContent = fact;
     factBox.style.display = 'block';
     setTimeout(() => {
       factBox.style.display = 'none';
     }, 5000);
-    
-    // If the hotspot is associated with a live cam, open the modal
+
+    // If the hotspot is associated with a live cam, open the modal.
     if (showLiveCam === "true") {
       liveCamModal.style.display = "block";
     }
