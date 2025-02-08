@@ -64,9 +64,11 @@ header {
 /* Main Content Layout */
 main {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     padding: 50px;
+    gap: 20px;
 }
 
 .land {
@@ -172,10 +174,10 @@ main {
 }
 
 /* Set image coordinates as percentages */
-.image-card:nth-child(1) { top: 165%; left: 25.7%; position: absolute;}
-.image-card:nth-child(2) { top: 88.3%; left: 17.4%; position: absolute;}
-.image-card:nth-child(3) { top: 97.36%; left: 63.3%; position: absolute;}
-.image-card:nth-child(4) { top: 121.3%; left: 38.3%; position: absolute;}
+.image-card:nth-child(1) { top: 245%; left: 25.7%; position: absolute;}
+.image-card:nth-child(2) { top: 148.3%; left: 17.4%; position: absolute;}
+.image-card:nth-child(3) { top: 157.36%; left: 63.3%; position: absolute;}
+.image-card:nth-child(4) { top: 181.3%; left: 38.3%; position: absolute;}
 
 /* Hover Effect */
 .image-card:hover {
