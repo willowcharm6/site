@@ -360,6 +360,29 @@ main {
     background-color: #0000; /* Background color of the blocks */
     text-align: center; /* Center text inside the blocks */
 }
+.button {
+    margin-left: 20px;
+    margin-right: 20px;
+    background-color: #f9d0a973; /* Green background */
+    border: none; /* Remove borders */
+    color: rgb(0, 0, 0); /* White text */
+    padding: 10px 27px; /* Padding */
+    text-align: center; /* Center text */
+    text-decoration: none; /* Remove underlines */
+    display: inline-block;
+    font-size: 14px; /* Font size */
+    border-radius: 5px; /* Rounded corners */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3); /* Add shadow */
+    transition: background-color 0.3s ease; /* Smooth transition for hover effect */
+  }
+  .button:hover {
+    background-color: #c4a28373; /* Darker green on hover */
+  }
+  
+  .button:focus {
+      outline: none; /* Remove default focus outline */
+      box-shadow: 0 0 0 2px #311f0f73; /* Custom focus style */
+  }
 
 
 /* Responsive Design */
