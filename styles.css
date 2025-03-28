@@ -311,6 +311,7 @@ main {
     margin: 0 auto;
     padding: 20px;
     background-color: #B89E97;
+    text-align: center;
 }
 .gallery-item {
     flex: 1;
@@ -336,6 +337,15 @@ main {
     justify-content: center;
     margin-top: 10px;
 }
+.models {
+    display: flex;
+    flex: 1; /* Allow each block to take equal space */
+    margin: 0 15px; /* Margin between the blocks */
+    padding: 20px; /* Padding inside each block */
+    background-color: #0000; /* Background color of the blocks */
+    text-align: center; /* Center text inside the blocks */
+}
+
 
 /* Responsive Design */
 @media (max-width: 768px) {
