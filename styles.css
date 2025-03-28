@@ -21,8 +21,13 @@ body.index {
 body.ocean {
     background-color: #DECCCC;
 }
-
 body.land {
+    background-color: #DECCCC;
+}
+body.shore {
+    background-color: #DECCCC;
+}
+body.harbor {
     background-color: #DECCCC;
 }
 
@@ -74,7 +79,6 @@ main {
 .land {
     display: flex;
     flex-direction: column;
-    background-color: #DECCCC;
 }
 
 /* About Section */
@@ -174,10 +178,10 @@ main {
 }
 
 /* Set image coordinates as percentages */
-.image-card:nth-child(1) { top: 245%; left: 25.7%; position: absolute;}
-.image-card:nth-child(2) { top: 148.3%; left: 17.4%; position: absolute;}
-.image-card:nth-child(3) { top: 157.36%; left: 63.3%; position: absolute;}
-.image-card:nth-child(4) { top: 181.3%; left: 38.3%; position: absolute;}
+.image-card:nth-child(1) { top: 165%; left: 25.7%; position: absolute;}
+.image-card:nth-child(2) { top: 68.3%; left: 17.4%; position: absolute;}
+.image-card:nth-child(3) { top: 77.36%; left: 63.3%; position: absolute;}
+.image-card:nth-child(4) { top: 101.3%; left: 38.3%; position: absolute;}
 
 /* Hover Effect */
 .image-card:hover {
@@ -301,7 +305,37 @@ main {
     display: block;
 }
 
-
+/* Harbor styling */
+.harbor-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #B89E97;
+}
+.gallery-item {
+    flex: 1;
+    margin: 0 10px;
+    text-align: center;
+}
+.gallery-item img {
+    max-width: 50%;
+    height: auto;
+    border: 1px solid #ddd;
+}
+.pdf-viewer {
+    width: 100%;
+    height: 600px;
+    border: 1px solid #ddd;
+    overflow: auto;
+}
+.pdf-canvas-container {
+    text-align: center;
+}
+.pdf-navigation {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}
 
 /* Responsive Design */
 @media (max-width: 768px) {

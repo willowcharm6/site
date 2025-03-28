@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Harbor</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.11.338/pdf.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class = "harbor">
+    <header>
+        <div class="nav">
+            <ul>
+                <li><a href="index.html">About</a></li>
+                <li><a href="land.html">Land</a></li>
+                <li><a href="ocean.html">Ocean</a></li>
+                <li><a href="shore.html">Shore</a></li>
+                <li><a href="harbor.html">Harbor</a></li>
+                <li><a href="lpz_game/lpz_game.html">LPZ Virtual Tour</a></li>
+                <li><a href="resume.html">Resume</a></li>
+            </ul>
+        </div>
+    </header>
+    <div class="harbor-container">
+        <div class="project-header">
+            <h1>SkyNet System</h1>
+            <p>Design Thinking and Communication Project - Northwestern Engineering</p>
+        </div>
+
+        <div class="gallery-item">
+            <h2>Project Poster</h2>
+            <img src="DTC-1/Skynet.png" alt="SkyNet System Poster">
+        </div>
+
+        <div class="gallery-item">
+            <h2>Project Report</h2>
+            <div id="report-viewer" class="pdf-viewer">
+                <div class="pdf-canvas-container">
+                    <canvas id="report-canvas"></canvas>
+                </div>
+            </div>
+            <div class="pdf-navigation">
+                <button id="prev-report">Previous</button>
+                <span id="report-page-num">Page 1 of 67</span>
+                <button id="next-report">Next</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // PDF Viewer Function
+        function setupPDFViewer(pdfPath, canvasIds, prevButtonId, nextButtonId, pageNumSpanId) {
+            let pdfDoc = null;
+            let pageNum = 1;
+            let pageRendering = false;
+            let pageNumPending = null;
+            const canvasElements = canvasIds.map(id => document.getElementById(id));
+            const prevButton = document.getElementById(prevButtonId);
+            const nextButton = document.getElementById(nextButtonId);
+            const pageNumSpan = document.getElementById(pageNumSpanId);
+
+            function renderPage(num) {
+                pageRendering = true;
+                pdfDoc.getPage(num).then(function(page) {
+                    const viewport = page.getViewport({scale: 1.5});
+                    
+                    // If multiple canvases, distribute pages
+                    canvasElements.forEach((canvas, index) => {
+                        canvas.height = viewport.height;
+                        canvas.width = viewport.width;
+                        
+                        const context = canvas.getContext('2d');
+                        const renderContext = {
+                            canvasContext: context,
+                            viewport: viewport
+                        };
+                        
+                        // Render specific page for each canvas
+                        if (canvasElements.length > 1) {
+                            page = pdfDoc.getPage(num + index);
+                        }
+                        
+                        page.render(renderContext);
+                    });
+
+                    pageRendering = false;
+                    if (pageNumPending !== null) {
+                        renderPage(pageNumPending);
+                        pageNumPending = null;
+                    }
+                });
+
+                pageNumSpan.textContent = `Page ${num} of ${pdfDoc.numPages}`;
+            }
+
+            function queueRenderPage(num) {
+                if (pageRendering) {
+                    pageNumPending = num;
+                } else {
+                    renderPage(num);
+                }
+            }
+
+            function onPrevPage() {
+                if (pageNum > 1) {
+                    pageNum--;
+                    queueRenderPage(pageNum);
+                }
+            }
+
+            function onNextPage() {
+                if (pageNum < pdfDoc.numPages) {
+                    pageNum++;
+                    queueRenderPage(pageNum);
+                }
+            }
+
+            // Load PDF
+            pdfjsLib.getDocument(pdfPath).promise.then(function(pdfDoc_) {
+                pdfDoc = pdfDoc_;
+                renderPage(pageNum);
+            });
+
+            prevButton.addEventListener('click', onPrevPage);
+            nextButton.addEventListener('click', onNextPage);
+        }
+
+        // Setup Report PDF Viewer
+        setupPDFViewer(
+            'DTC-1/Skynet_System_t4s13w25_Final_Report.pdf', 
+            ['report-canvas'], 
+            'prev-report', 
+            'next-report', 
+            'report-page-num'
+        );
+    </script>
+</body>
+</html>
