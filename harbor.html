@@ -30,8 +30,59 @@
                 <p>Design Thinking and Communication Project - Northwestern Engineering</p>
                 <p>Created by Augustine Villalobos, Charmaine Guo, Ivan Dolphan, and Milo Fernandez
                      with the guidance of Professor Coney and Professor Rouse</p>
+                <p>*Majority of the CAD designed in Onshape by Milo with consultation from all team members.*</p>
             </div>
-
+            <div class="models-container">
+                <div class="model">
+                    <p>Final Version 3.2.1</p>
+                    <model-viewer id="model" 
+                        src="DTC-1/final ver 3.2.1.glb" 
+                        auto-rotate camera-controls>
+                    </model-viewer>
+                </div>
+                <div class="model">
+                    <p>Wall Mount version 1</p>
+                    <model-viewer id="model" 
+                        src="DTC-1/wallmount1.glb" 
+                        auto-rotate camera-controls>
+                    </model-viewer>
+                </div>
+                <div class="model">
+                    <p>Part of wall mount version 3</p>
+                    <model-viewer id="model" 
+                        src="DTC-1/Mount to print v3.glb" 
+                        auto-rotate camera-controls>
+                    </model-viewer>
+                </div>
+                <div class="model">
+                    <p>Part of wall mount version 1.1</p>
+                    <model-viewer id="model" 
+                        src="DTC-1/mount final ver 1.1.glb" 
+                        auto-rotate camera-controls>
+                    </model-viewer>
+                </div>
+                <div class="model">
+                    <p>Full print version 1.3</p>
+                    <model-viewer id="model" 
+                        src="DTC-1/full print v 1.3.glb" 
+                        auto-rotate camera-controls>
+                    </model-viewer>
+                </div>
+                <!-- <div class="model">
+                    <p>Full Print version 2.1</p>
+                    <model-viewer id="model" 
+                        src="DTC-1/full print v 2.1.glb" 
+                        auto-rotate camera-controls>
+                    </model-viewer>
+                </div> -->
+                <div class="model">
+                    <p>Full Print version 1.2</p>
+                    <model-viewer id="model" 
+                        src="DTC-1/final prototype ver 1.2.glb" 
+                        auto-rotate camera-controls>
+                    </model-viewer>
+                </div>
+            </div>
             <div class="gallery-item">
                 <h2>Project Poster</h2>
                 <img src="DTC-1/Skynet.png" alt="SkyNet System Poster">
@@ -51,36 +102,6 @@
                 </div>
             </div>
         </div>
-        <div class="models">
-            <model-viewer id="model" 
-                src="DTC-1/final ver 3.2.1.glb" 
-                auto-rotate camera-controls>
-            </model-viewer>
-            <model-viewer id="model" 
-                src="DTC-1/wallmount1.glb" 
-                auto-rotate camera-controls>
-            </model-viewer>
-            <model-viewer id="model" 
-                src="DTC-1/Mount to print v3.glb" 
-                auto-rotate camera-controls>
-            </model-viewer>
-            <model-viewer id="model" 
-                src="DTC-1/mount final ver 1.1.glb" 
-                auto-rotate camera-controls>
-            </model-viewer>
-            <model-viewer id="model" 
-                src="DTC-1/full print v 1.3.glb" 
-                auto-rotate camera-controls>
-            </model-viewer>
-            <model-viewer id="model" 
-                src="DTC-1/full print v 2.1.glb" 
-                auto-rotate camera-controls>
-            </model-viewer>
-            <model-viewer id="model" 
-                src="DTC-1/final prototype ver 1.2.glb" 
-                auto-rotate camera-controls>
-            </model-viewer>
-        </div>
     </main>
 
     <script>
@@ -98,7 +119,7 @@
             function renderPage(num) {
                 pageRendering = true;
                 pdfDoc.getPage(num).then(function(page) {
-                    const viewport = page.getViewport({scale: 1.5});
+                    const viewport = page.getViewport({scale: 1.25});
                     
                     // If multiple canvases, distribute pages
                     canvasElements.forEach((canvas, index) => {
