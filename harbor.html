@@ -57,7 +57,8 @@
                     <p>Part of wall mount version 3</p>
                     <model-viewer id="model" 
                         src="DTC-1/Mount to print v3.glb" 
-                        auto-rotate camera-controls>
+                        auto-rotate 
+                        camera-controls>
                     </model-viewer>
                 </div>
                 <div class="model">
@@ -74,13 +75,13 @@
                         auto-rotate camera-controls>
                     </model-viewer>
                 </div>
-                <!-- <div class="model">
+                <div class="model">
                     <p>Full Print version 2.1</p>
                     <model-viewer id="model" 
                         src="DTC-1/full print v 2.1.glb" 
                         auto-rotate camera-controls>
                     </model-viewer>
-                </div> -->
+                </div>
                 <div class="model">
                     <p>Full Print version 1.2</p>
                     <model-viewer id="model" 
@@ -89,22 +90,24 @@
                     </model-viewer>
                 </div>
             </div>
-            <div class="gallery-item">
-                <h2>Project Poster</h2>
-                <img src="DTC-1/Skynet.png" alt="SkyNet System Poster">
-            </div>
-
-            <div class="gallery-item">
-                <h2>Project Report</h2>
-                <div id="report-viewer" class="pdf-viewer">
-                    <div class="pdf-canvas-container">
-                        <canvas id="report-canvas"></canvas>
-                    </div>
+            <div class="gallery">
+                <div class="gallery-item">
+                    <h2>Project Poster</h2>
+                    <img src="DTC-1/Skynet.png" alt="SkyNet System Poster">
                 </div>
-                <div class="pdf-navigation">
-                    <button id="prev-report" class="button">Previous</button>
-                    <span id="report-page-num">Page 1 of 67</span>
-                    <button id="next-report" class="button">Next</button>
+
+                <div class="gallery-item">
+                    <h2>Project Report</h2>
+                    <div id="report-viewer" class="pdf-viewer">
+                        <div class="pdf-canvas-container">
+                            <canvas id="report-canvas"></canvas>
+                        </div>
+                    </div>
+                    <div class="pdf-navigation">
+                        <button id="prev-report" class="button">Previous</button>
+                        <span id="report-page-num">Page 1 of 67</span>
+                        <button id="next-report" class="button">Next</button>
+                    </div>
                 </div>
             </div>
         </div>

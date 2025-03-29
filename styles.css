@@ -318,6 +318,10 @@ main {
     justify-content: center;
     gap: 20px;
 }
+.gallery {
+    display: flex;
+    gap: 20px;
+}
 .gallery-item {
     flex: 0 1 calc(50% - 20px); /* Adjust width as needed */
     background-color: #B89E97;
@@ -348,12 +352,16 @@ main {
     margin-top: 10px;
 }
 .models-container {
-    display: contents;
+    display: flex;
+    flex-wrap: wrap;
     justify-content: space-around; /* Adjust spacing between the blocks */
     padding: 20px; /* Padding around the entire team section */
 }
 .model {
-    display: block;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
     flex: 1; /* Allow each block to take equal space */
     margin: 0 15px; /* Margin between the blocks */
     padding: 20px; /* Padding inside each block */
