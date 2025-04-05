@@ -391,6 +391,11 @@ main {
       outline: none; /* Remove default focus outline */
       box-shadow: 0 0 0 2px #311f0f73; /* Custom focus style */
   }
+.yygs {
+    text-align: center;
+    margin-bottom: 10px;
+}
+
 
 
 /* Responsive Design */
