@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2025.1.24)  30 MAR 2025 10:46
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2025.1.24)  17 APR 2025 12:01
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -402,30 +402,35 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 LaTeX Font Info:    Font shape `OT1/EBGaramond-OsF/b/n' will be
 (Font)              scaled to size 10.0pt on input line 30.
 LaTeX Font Info:    Font shape `OT1/EBGaramond-OsF/m/n' will be
-(Font)              scaled to size 9.5pt on input line 31.
+(Font)              scaled to size 11.0pt on input line 31.
 LaTeX Font Info:    Font shape `OT1/EBGaramond-OsF/b/n' will be
-(Font)              scaled to size 9.5pt on input line 37.
+(Font)              scaled to size 11.0pt on input line 37.
 LaTeX Font Info:    Font shape `OT1/EBGaramond-OsF/m/it' will be
-(Font)              scaled to size 9.5pt on input line 39.
-LaTeX Font Info:    Calculating math sizes for size <9.5> on input line 52.
+(Font)              scaled to size 11.0pt on input line 39.
+LaTeX Font Info:    Calculating math sizes for size <11> on input line 52.
 
-LaTeX Font Warning: Font shape `OT1/cmr/m/n' in size <9.5> not available
-(Font)              size <9> substituted on input line 52.
-
-
-LaTeX Font Warning: Font shape `OML/cmm/m/it' in size <9.5> not available
-(Font)              size <9> substituted on input line 52.
+LaTeX Font Warning: Font shape `OT1/cmr/m/n' in size <5.5> not available
+(Font)              size <5> substituted on input line 52.
 
 
-LaTeX Font Warning: Font shape `OMS/cmsy/m/n' in size <9.5> not available
-(Font)              size <9> substituted on input line 52.
+LaTeX Font Warning: Font shape `OML/cmm/m/it' in size <5.5> not available
+(Font)              size <5> substituted on input line 52.
+
+
+LaTeX Font Warning: Font shape `OMS/cmsy/m/n' in size <5.5> not available
+(Font)              size <5> substituted on input line 52.
 
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <9.5> on input line 52.
+(Font)              <11> on input line 52.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <6.64996> on input line 52.
+(Font)              <7.69997> on input line 52.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <4.75> on input line 52.
+(Font)              <5.5> on input line 52.
+
+Overfull \hbox (11.72636pt too wide) in paragraph at lines 52--60
+[][] 
+ []
+
 [1
 
 {C:/Users/charm/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}{C:/Users/char
@@ -445,22 +450,21 @@ Package rerunfilecheck Info: File `Charmaine_Guo_Resume.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 9946 strings out of 474486
- 161432 string characters out of 5743755
- 1946542 words of memory out of 5000000
- 32111 multiletter control sequences out of 15000+600000
- 568814 words of font info for 46 fonts, out of 8000000 for 9000
+ 9949 strings out of 474486
+ 161473 string characters out of 5743755
+ 1944542 words of memory out of 5000000
+ 32114 multiletter control sequences out of 15000+600000
+ 569730 words of font info for 49 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  72i,6n,79p,516b,454s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <C:/Users/charm/AppData/Local/Programs/MiKTeX/fonts/type1/public/ebgaramond/E
 BGaramond-Bold.pfb><C:/Users/charm/AppData/Local/Programs/MiKTeX/fonts/type1/pu
 blic/ebgaramond/EBGaramond-Italic.pfb><C:/Users/charm/AppData/Local/Programs/Mi
 KTeX/fonts/type1/public/ebgaramond/EBGaramond-Regular.pfb><C:/Users/charm/AppDa
-ta/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/ch
-arm/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy9.pfb>
-Output written on Charmaine_Guo_Resume.pdf (1 page, 93219 bytes).
+ta/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
+Output written on Charmaine_Guo_Resume.pdf (1 page, 84652 bytes).
 PDF statistics:
- 38 PDF objects out of 1000 (max. 8388607)
+ 33 PDF objects out of 1000 (max. 8388607)
  2 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 
