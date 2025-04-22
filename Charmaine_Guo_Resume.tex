@@ -1,13 +1,22 @@
 
 \documentclass[
-	a4paper, % Uncomment for A4 paper size (default is US letter)
-	9pt, % Default font size, can use 10pt, 11pt or 12pt
-]{resume} % Use the resume class
+    a4paper,
+    9pt,
+]{resume}
 
-\usepackage{ebgaramond} % Use the EB Garamond font
+\usepackage[scaled=0.95]{helvet}  % Load Helvetica
+\renewcommand{\familydefault}{\sfdefault}  % Use sans-serif font
+
 \usepackage{hyperref}
-\geometry{margin=0.5in} % Adjust as needed
-
+\geometry{margin=0.5in}
+%\documentclass[
+%	a4paper, % Uncomment for A4 paper size (default is US letter)
+%	9pt, % Default font size, can use 10pt, 11pt or 12pt
+%]{resume} % Use the resume class
+%
+%\usepackage{uarial} % Use the EB Garamond font
+%\usepackage{hyperref}
+%\geometry{margin=0.5in} % Adjust as needed
 
 
 %------------------------------------------------
@@ -17,7 +26,7 @@
 % You can use the \address command up to 3 times for 3 different addresses or pieces of contact information
 % Any new lines (\\) you use in the \address commands will be converted to symbols, so each address will appear as a single line.
 
-\address{ Wayland, MA 01778} % Main address
+\address{ Wayland, MA 01778 \& Evanston, IL 60201} % Main address
 
 % \address{123 Pleasant Lane \\ City, State 12345} % A secondary address (optional)
 
@@ -28,7 +37,7 @@
 %----------------------------------------------------------------------------------------
 
 \begin{document}
-\fontsize{11pt}{13pt}\selectfont
+\fontsize{11pt}{10pt}\selectfont
 
 %----------------------------------------------------------------------------------------
 %	EDUCATION SECTION
@@ -51,8 +60,8 @@
 
 	\begin{tabular}{@{} >{\bfseries}l @{\hspace{6ex}} l @{}}
 		Computer Languages & Python, Java, MATLAB, HTML, CSS \\
-		Soft Skills  & Project Management, Teamwork , Time-Management, Adaptable \\
-		Hard Skills & Laboratory work, Research Design, Lab Safety, Capillary Rheometer, SEM, Spectrometer, ICP \\
+		Soft Skills  & Project Management, Teamwork , Time-Management, Adaptability \\
+		Hard Skills & Lab Safety, Capillary Rheometer, SEM, Spectrometer, ICP \\
 %		Opening and Closing Duties, POS Software Skills \\
 		Organizational Tools & Microsoft Excel, Google Drive \\
 	
@@ -67,7 +76,7 @@
 \begin{rSection}{Experience}
 
 	\begin{rSubsection}{Undergraduate Researcher}{October 2024 - Present}{Northwestern University}{Evanston, IL}
-		\item Collaborating with a PhD candidate on cellulose crystallization research, focusing on color formation without dyes.
+		\item Collaborating with a PhD candidate on cellulose crystalline research, focusing on color formation without dyes.
 		\item Studying how UV light cures acrylic acid, solidifying cellulose crystals and creating structural colors
 		\item Analyzing using MATLAB how varying cellulose concentrations affect crystal arrangements and resulting colors.
 	\end{rSubsection}
@@ -83,7 +92,7 @@
 	\begin{rSubsection}{Engineer Intern}{June 2024 - August 2024}{Weston Department of Public Works}{Weston, MA}
 		\item Transferred water pipe data from hand-drawn maps into a GIS-based system, improving online access and organization.
 		\item Identified five roads with lead pipes, leading to successful excavation and replacement.
-		\item Surveyed public and private water lines, supporting system maintenance.
+%		\item Surveyed public and private water lines, supporting system maintenance.
 		\item Assisted with water treatment operations, gaining hands-on infrastructure experience
 	\end{rSubsection}
 
@@ -119,6 +128,26 @@
 \end{rSection}
 
 %----------------------------------------------------------------------------------------
+%	Projects
+%----------------------------------------------------------------------------------------
+
+\begin{rSection}{Projects}
+
+	\begin{rSubsection}{Purrfect Care}{Desktop (WildHacks)}{Python, PyQt5, Gemini API}{March 2025}{}
+		\item Built a PyQt5 desktop app with wellness reminders, to-do list, and animated notifications.
+  		\item Integrated Gemini API for contextual chat with a virtual assistant cat.
+	  \end{rSubsection}
+
+
+
+\begin{rSubsection}{Skynet System}{Team Project (Design Thinking \& Communcation)}{Onshape, Arduino IDE, ESP32}{Jan - March 2025}
+	  \item Designed solutions for remote zoo access, with protoypes including an interactive online tour prototype built with web technologies and a Hexbug like design.
+  	\item Final deliverable: a zipline-mounted camera system enabling live video feed controlled remotely by users.
+    \end{rSubsection}
+    
+  \end{rSection}
+
+%----------------------------------------------------------------------------------------
 %	EXTRACURRICULAR ACTIVITIES SECTION
 %----------------------------------------------------------------------------------------
 
@@ -127,7 +156,7 @@
     	\item Working on the electrical systems team to design the back box harness and build the top hoop harness.
     	\item Collaborating with the accumulator team to design the low voltage battery box.
         	\item Learning and applying software like Altium, SolidWorks, and RapidHarness.
-        	\item Contributing to team milestones and ensuring technical goals align with deadlines.
+  %      	\item Contributing to team milestones and ensuring technical goals align with deadlines.
     \end{rSubsection}
 
 \begin{rSubsection}{Finance Lead}{January 2025 -- Present}{Society of Asian Scientists and Engineers (SASE)}{}
@@ -135,10 +164,10 @@
     \item Writing grants and collaborating with the club to ensure efficient financial planning and resource allocation.
     \end{rSubsection}
 
-    \begin{rSubsection}{Project Development Team}{January 2025 -- Present}{McCormick Student Advisory Board (MSAB)}{}{}
-        	\item Assisting in organizing departmental events to connect students with faculty and industry professionals.
-        	\item Providing input on academic initiatives and fostering a collaborative environment for Northwestern McCormick School of Engineering  students.
-    \end{rSubsection}
+%    \begin{rSubsection}{Project Development Team}{January 2025 -- Present}{McCormick Student Advisory Board (MSAB)}{}{}
+%        	\item Assisting in organizing departmental events to connect students with faculty and industry professionals.
+%        	\item Providing input on academic initiatives and fostering a collaborative environment for Northwestern McCormick School of Engineering  students.
+%    \end{rSubsection}
 
 %    \begin{rSubsection}{Tikkun Olam Makers (TOM)}{January 2025 -- Present}{}{}
 %	\item Collaborating with a multidisciplinary team to design assistive technologies for individuals with disabilities.
