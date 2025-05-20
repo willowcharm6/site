@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hobbies - Your Name</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+  <!-- Navigation -->
+  <header>
+    <div class="container">
+      <div class="logo">
+        <a href="index.html">YourName</a>
+      </div>
+      <nav>
+        <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="research.html">Research</a></li>
+          <li><a href="projects.html">Projects</a></li>
+          <li><a href="blog.html">Blog</a></li>
+          <li><a href="hobbies.html" class="active">Hobbies</a></li>
+          <li><a href="resume.html">Resume</a></li>
+        </ul>
+        <div class="hamburger">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hobbies Hero Section -->
+  <section class="page-hero hobbies-hero">
+    <div class="container">
+      <h1>Hobbies & Interests</h1>
+      <p class="hero-description">Beyond academics and research, I enjoy a variety of creative and outdoor activities that help me maintain balance and find inspiration.</p>
+    </div>
+  </section>
+
+  <!-- Hobbies Tabs Section -->
+  <section class="hobbies-tabs">
+    <div class="container">
+      <div class="tabs">
+        <div class="tab-buttons">
+          <button class="tab-button active" data-tab="sewing">Sewing</button>
+          <button class="tab-button" data-tab="baking">Baking</button>
+          <button class="tab-button" data-tab="outdoor">Outdoor</button>
+          <button class="tab-button" data-tab="creative">Creative</button>
+        </div>
+        
+        <div class="tab-content">
+          <!-- Sewing Tab -->
+          <div class="tab-pane active" id="sewing">
+            <div class="hobby-content">
+              <div class="hobby-text">
+                <h2>Sewing & Textile Arts</h2>
+                <p>My passion for sewing began when I was young, and it has evolved into a creative outlet that complements my technical work in e-textiles. I enjoy creating garments, accessories, and home decor items.</p>
+                <p>This hobby directly connects to my research interests in integrating electronics with fabrics, allowing me to experiment with techniques and materials in a creative context before applying them to technical projects.</p>
+                <h3>Recent Projects</h3>
+                <ul>
+                  <li>Handmade tote bag with custom embroidery</li>
+                  <li>Upcycled denim jacket with LED accents</li>
+                  <li>Custom-designed face masks with adjustable features</li>
+                  <li>Quilted wall hanging using fabric scraps</li>
+                </ul>
+              </div>
+            </div>
+            
+            <h3 class="section-title">Sewing Gallery</h3>
+            <div class="gallery-categories">
+              <button class="gallery-category active" data-filter="all">All</button>
+              <button class="gallery-category" data-filter="dress">Dresses</button>
+              <button class="gallery-category" data-filter="upcycled">Upcycled</button>
+              <button class="gallery-category" data-filter="accessories">Accessories</button>
+            </div>
+            
+            <div class="carousel" data-carousel-id="sewing" data-current-index="0">
+              <button class="arrow left-arrow">&#10094;</button>
+              <div class="carousel-container">
+                <div class="carousel-slide">
+                  <div class="carousel-item" data-category="dress">
+                    <img src="https://via.placeholder.com/400x300?text=Cicely+Dress" alt="Cicely Dress">
+                    <div class="caption">Cicely Dress</div>
+                  </div>
+                  <div class="carousel-item" data-category="upcycled">
+                    <img src="https://via.placeholder.com/400x300?text=Upcycled+Chemise" alt="Chemise">
+                    <div class="caption">Upcycled Chemise</div>
+                  </div>
+                  <div class="carousel-item" data-category="dress">
+                    <img src="https://via.placeholder.com/400x300?text=Clover+Cami" alt="Clover Cami">
+                    <div class="caption">Clover Cami</div>
+                  </div>
+                  <div class="carousel-item" data-category="dress">
+                    <img src="https://via.placeholder.com/400x300?text=Cowl+Slip+Dress" alt="Cowl Slip Dress">
+                    <div class="caption">Cowl Slip Dress</div>
+                  </div>
+                  <div class="carousel-item" data-category="upcycled">
+                    <img src="https://via.placeholder.com/400x300?text=Pants+from+Curtains" alt="Pants">
+                    <div class="caption">Pants made from thrifted curtains</div>
+                  </div>
+                  <div class="carousel-item" data-category="dress">
+                    <img src="https://via.placeholder.com/400x300?text=Fashion+Show+Dress" alt="Dress">
+                    <div class="caption">Dress for a fashion show</div>
+                  </div>
+                  <div class="carousel-item" data-category="dress">
+                    <img src="https://via.placeholder.com/400x300?text=Fashion+Show+Dress+2" alt="Dress">
+                    <div class="caption">Dress for a fashion show</div>
+                  </div>
+                  <div class="carousel-item" data-category="accessories">
+                    <img src="https://via.placeholder.com/400x300?text=Embroidered+Ornaments" alt="Ornaments">
+                    <div class="caption">Embroidered ornaments for friends</div>
+                  </div>
+                  <div class="carousel-item" data-category="accessories">
+                    <img src="https://via.placeholder.com/400x300?text=Headphones+Cover" alt="Crochet cover for headphones">
+                    <div class="caption">Crochet cover for headphones</div>
+                  </div>
+                  <div class="carousel-item" data-category="dress">
+                    <img src="https://via.placeholder.com/400x300?text=Holiday+Set" alt="Holiday Set">
+                    <div class="caption">Holiday Set</div>
+                  </div>
+                  <div class="carousel-item" data-category="dress">
+                    <img src="https://via.placeholder.com/400x300?text=Howl's+Jacket" alt="Jacket">
+                    <div class="caption">Howl's Jacket from Howl's Moving Castle</div>
+                  </div>
+                  <div class="carousel-item" data-category="dress">
+                    <img src="https://via.placeholder.com/400x300?text=Ice+Skirt" alt="Skirt">
+                    <div class="caption">Skirt inspired by ice and winter</div>
+                  </div>
+                  <div class="carousel-item" data-category="accessories">
+                    <img src="https://via.placeholder.com/400x300?text=Lace+Gloves" alt="gloves">
+                    <div class="caption">Lace gloves for holiday outfits</div>
+                  </div>
+                  <div class="carousel-item" data-category="upcycled">
+                    <img src="https://via.placeholder.com/400x300?text=Pants+Bag" alt="Bag">
+                    <div class="caption">Sling bag made upcycled from pants</div>
+                  </div>
+                  <div class="carousel-item" data-category="dress">
+                    <img src="https://via.placeholder.com/400x300?text=Peppermint+Skirt" alt="Skirt">
+                    <div class="caption">Skirt made using pattern from Peppermint Magazine</div>
+                  </div>
+                  <div class="carousel-item" data-category="dress">
+                    <img src="https://via.placeholder.com/400x300?text=Puff+Dress" alt="Puff Dress">
+                    <div class="caption">Copycat Selkie Banana Puff Dress</div>
+                  </div>
+                  <div class="carousel-item" data-category="dress">
+                    <img src="https://via.placeholder.com/400x300?text=Shark+Puffer" alt="Shark Puffer">
+                    <div class="caption">Shark Puffer Jacket view 1</div>
+                  </div>
+                  <div class="carousel-item" data-category="dress">
+                    <img src="https://via.placeholder.com/400x300?text=Shark+Puffer+2" alt="Shark Puffer">
+                    <div class="caption">Shark Puffer Jacket view 2</div>
+                  </div>
+                  <div class="carousel-item" data-category="dress">
+                    <img src="https://via.placeholder.com/400x300?text=Shirred+Top" alt="Shirred top and Bag">
+                    <div class="caption">Practicing shirring technique and matching bag</div>
+                  </div>
+                  <div class="carousel-item" data-category="accessories">
+                    <img src="https://via.placeholder.com/400x300?text=Ski+Bag" alt="Bag for skis">
+                    <div class="caption">Waterproof bag for cross country skis</div>
+                  </div>
+                  <div class="carousel-item" data-category="dress">
+                    <img src="https://via.placeholder.com/400x300?text=Sundress+1" alt="Sundress">
+                    <div class="caption">Sundress version 1</div>
+                  </div>
+                  <div class="carousel-item" data-category="dress">
+                    <img src="https://via.placeholder.com/400x300?text=Sundress+2" alt="Sundress">
+                    <div class="caption">Sundress version 2</div>
+                  </div>
+                  <div class="carousel-item" data-category="accessories">
+                    <img src="https://via.placeholder.com/400x300?text=Wine+Bag" alt="Wine bag">
+                    <div class="caption">Wine Bag</div>
+                  </div>
+                </div>
+              </div>
+              <button class="arrow right-arrow">&#10095;</button>
+            </div>
+          </div>
+          
+          <!-- Baking Tab -->
+          <div class="tab-pane" id="baking">
+            <div class="hobby-content">
+              <div class="hobby-text">
+                <h2>Baking & Culinary Arts</h2>
+                <p>Baking is my creative outlet and stress reliever. I enjoy the precision and chemistry involved in creating delicious treats, which actually has many parallels to my materials science work.</p>
+                <p>I particularly enjoy experimenting with bread recipes, decorative cakes, and trying baking techniques from different cultures.</p>
+                <h3>Favorite Recipes</h3>
+                <ul>
+                  <li>Sourdough bread with homemade starter</li>
+                  <li>French macarons with seasonal flavors</li>
+                  <li>Decorated sugar cookies for special occasions</li>
+                  <li>Traditional family recipes with modern twists</li>
+                </ul>
+              </div>
+            </div>
+            
+            <h3 class="section-title">Baking Gallery</h3>
+            <div class="gallery-categories">
+              <button class="gallery-category active" data-filter="all">All</button>
+              <button class="gallery-category" data-filter="bread">Bread</button>
+              <button class="gallery-category" data-filter="dessert">Desserts</button>
+              <button class="gallery-category" data-filter="savory">Savory</button>
+            </div>
+            
+            <div class="carousel" data-carousel-id="baking" data-current-index="0">
+              <button class="arrow left-arrow">&#10094;</button>
+              <div class="carousel-container">
+                <div class="carousel-slide">
+                  <div class="carousel-item" data-category="bread">
+                    <img src="https://via.placeholder.com/400x300?text=Banana+Bread" alt="Banana Bread">
+                    <div class="caption">Banana Bread</div>
+                  </div>
+                  <div class="carousel-item" data-category="bread">
+                    <img src="https://via.placeholder.com/400x300?text=Blueberry+Lemon+Loaf" alt="Blueberry Lemon Loaf">
+                    <div class="caption">Blueberry Lemon Loaf</div>
+                  </div>
+                  <div class="carousel-item" data-category="dessert">
+                    <img src="https://via.placeholder.com/400x300?text=Blueberry+Muffins" alt="Blueberry Muffins">
+                    <div class="caption">Blueberry Muffins</div>
+                  </div>
+                  <div class="carousel-item" data-category="savory">
+                    <img src="https://via.placeholder.com/400x300?text=Chicken+Pot+Pie" alt="Chicken Pot Pie">
+                    <div class="caption">Chicken Pot Pie</div>
+                  </div>
+                  <div class="carousel-item" data-category="dessert">
+                    <img src="https://via.placeholder.com/400x300?text=Chocolate+Strawberries" alt="Chocolate Strawberries">
+                    <div class="caption">Chocolate Strawberries</div>
+                  </div>
+                  <div class="carousel-item" data-category="dessert">
+                    <img src="https://via.placeholder.com/400x300?text=Christmas+Cookies" alt="Christmas Cookies">
+                    <div class="caption">Christmas Cookies</div>
+                  </div>
+                  <div class="carousel-item" data-category="dessert">
+                    <img src="https://via.placeholder.com/400x300?text=Sugar+Cookies" alt="Sugar Cookies">
+                    <div class="caption">Sugar Cookies</div>
+                  </div>
+                  <div class="carousel-item" data-category="bread">
+                    <img src="https://via.placeholder.com/400x300?text=Croissants" alt="Croissants">
+                    <div class="caption">Croissants</div>
+                  </div>
+                  <div class="carousel-item" data-category="savory">
+                    <img src="https://via.placeholder.com/400x300?text=Dinner" alt="dinner">
+                    <div class="caption">Dinner</div>
+                  </div>
+                  <div class="carousel-item" data-category="bread">
+                    <img src="https://via.placeholder.com/400x300?text=Foccacia" alt="Foccacia">
+                    <div class="caption">Foccacia</div>
+                  </div>
+                  <div class="carousel-item" data-category="dessert">
+                    <img src="https://via.placeholder.com/400x300?text=Linzer+Cookies" alt="Linzer Cookies">
+                    <div class="caption">Linzer Cookies</div>
+                  </div>
+                  <div class="carousel-item" data-category="dessert">
+                    <img src="https://via.placeholder.com/400x300?text=Lunchbox+Cake" alt="Lunchbox cake">
+                    <div class="caption">Mini lunchbox cake for a friend's birthday</div>
+                  </div>
+                  <div class="carousel-item" data-category="dessert">
+                    <img src="https://via.placeholder.com/400x300?text=Meringues" alt="Meringues">
+                    <div class="caption">Meringues</div>
+                  </div>
+                  <div class="carousel-item" data-category="dessert">
+                    <img src="https://via.placeholder.com/400x300?text=Orange+Muffins" alt="Orange Muffins">
+                    <div class="caption">Orange Muffins</div>
+                  </div>
+                  <div class="carousel-item" data-category="dessert">
+                    <img src="https://via.placeholder.com/400x300?text=Tea+Cookies" alt="Cookies">
+                    <div class="caption">Earl Gray Tea cookies</div>
+                  </div>
+                </div>
+              </div>
+              <button class="arrow right-arrow">&#10095;</button>
+            </div>
+          </div>
+          
+          <!-- Outdoor Tab -->
+          <div class="tab-pane" id="outdoor">
+            <div class="hobby-content">
+              <div class="hobby-text">
+                <h2>Outdoor Activities</h2>
+                <p>Living near Lake Michigan provides wonderful opportunities for outdoor activities. I enjoy spending time at the beach, rollerblading along the lakefront, and biking through Chicago's neighborhoods.</p>
+                <p>These activities help me maintain a healthy work-life balance and often provide inspiration for my creative and technical projects.</p>
+                <h3>Favorite Spots</h3>
+                <ul>
+                  <li>Montrose Beach for relaxing weekends</li>
+                  <li>The 606 trail for biking adventures</li>
+                  <li>Lakefront Trail for rollerblading</li>
+                  <li>Northwestern's lakefront campus for study breaks</li>
+                </ul>
+              </div>
+              <div class="hobby-gallery">
+                <div class="gallery-item">
+                  <img src="https://via.placeholder.com/200x200?text=Outdoor+1" alt="Outdoor Activity 1">
+                </div>
+                <div class="gallery-item">
+                  <img src="https://via.placeholder.com/200x200?text=Outdoor+2" alt="Outdoor Activity 2">
+                </div>
+                <div class="gallery-item">
+                  <img src="https://via.placeholder.com/200x200?text=Outdoor+3" alt="Outdoor Activity 3">
+                </div>
+                <div class="gallery-item">
+                  <img src="https://via.placeholder.com/200x200?text=Outdoor+4" alt="Outdoor Activity 4">
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Creative Tab -->
+          <div class="tab-pane" id="creative">
+            <div class="hobby-content">
+              <div class="hobby-text">
+                <h2>Creative Pursuits</h2>
+                <p>I enjoy various creative activities including junk journaling, crafting, and DIY projects. These hobbies allow me to express myself artistically and often incorporate materials and techniques related to my academic interests.</p>
+                <p>Junk journaling has become a particular favorite, as it allows me to document my thoughts and experiences in a creative, tactile format that combines many of my interests.</p>
+                <h3>Recent Creations</h3>
+                <ul>
+                  <li>Research journal with handmade paper elements</li>
+                  <li>Upcycled materials craft projects</li>
+                  <li>DIY electronics enclosures with decorative elements</li>
+                  <li>Custom greeting cards for friends and family</li>
+                </ul>
+              </div>
+              <div class="hobby-gallery">
+                <div class="gallery-item">
+                  <img src="https://via.placeholder.com/200x200?text=Creative+1" alt="Creative Project 1">
+                </div>
+                <div class="gallery-item">
+                  <img src="https://via.placeholder.com/200x200?text=Creative+2" alt="Creative Project 2">
+                </div>
+                <div class="gallery-item">
+                  <img src="https://via.placeholder.com/200x200?text=Creative+3" alt="Creative Project 3">
+                </div>
+                <div class="gallery-item">
+                  <img src="https://via.placeholder.com/200x200?text=Creative+4" alt="Creative Project 4">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Hobbies Influence Section -->
+  <section class="hobbies-influence">
+    <div class="container">
+      <h2 class="section-title">How My Hobbies Influence My Work</h2>
+      <div class="influence-cards">
+        <div class="influence-card">
+          <h3>Creativity & Problem Solving</h3>
+          <p>My creative hobbies help me approach technical problems from different angles, often leading to innovative solutions in my research and projects.</p>
+        </div>
+        <div class="influence-card">
+          <h3>Material Exploration</h3>
+          <p>Working with different materials in my hobbies gives me practical insights that complement my theoretical knowledge in materials science.</p>
+        </div>
+        <div class="influence-card">
+          <h3>Balance & Perspective</h3>
+          <p>My diverse interests help me maintain balance and bring fresh perspectives to my academic work, preventing burnout and fostering creativity.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-text">
+          <p>&copy; <span id="current-year"></span> YourName. All rights reserved.</p>
+        </div>
+        <div class="social-links">
+          <a href="mailto:your.email@example.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+          <a href="https://github.com/yourusername" aria-label="GitHub"><i class="fab fa-github"></i></a>
+          <a href="https://linkedin.com/in/yourusername" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+          <a href="https://twitter.com/yourusername" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/script.js"></script>
+  <script src="js/gallery.js"></script>
+</body>
+</html>
