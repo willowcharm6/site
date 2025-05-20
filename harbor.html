@@ -1,260 +1,203 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Harbor</title>
-    <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.11.338/pdf.min.js"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Projects - Your Name</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
-<body class = "harbor">
-    <header>
-        <!-- Left side logo -->
-        <div class="logo">
-            
+<body>
+  <!-- Navigation -->
+  <header>
+    <div class="container">
+      <div class="logo">
+        <a href="index.html">YourName</a>
+      </div>
+      <nav>
+        <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="research.html">Research</a></li>
+          <li><a href="projects.html" class="active">Projects</a></li>
+          <li><a href="blog.html">Blog</a></li>
+          <li><a href="hobbies.html">Hobbies</a></li>
+          <li><a href="resume.html">Resume</a></li>
+        </ul>
+        <div class="hamburger">
+          <span></span>
+          <span></span>
+          <span></span>
         </div>
+      </nav>
+    </div>
+  </header>
 
-        <!-- Logo on the right side -->
-        <div class="nav">
-            <ul>
-                <li><a href="index.html">About</a></li>
-                <li><a href="land.html">Land</a></li>
-                <li><a href="ocean.html">Ocean</a></li>
-                <li><a href="shore.html">Shore</a></li>
-                <li><a href="harbor.html">Harbor</a></li>
-                <li><a href="lpz_game/lpz_game.html">LPZ Virtual Tour</a></li>
-                <li><a href="resume.html">Resume</a></li>
-            </ul>
+  <!-- Projects Hero Section -->
+  <section class="page-hero projects-hero">
+    <div class="container">
+      <h1>Projects</h1>
+      <p class="hero-description">A showcase of my academic projects, hackathon entries, and personal explorations in materials science, electronics, and coding.</p>
+    </div>
+  </section>
+
+  <!-- Projects Filter Section -->
+  <section class="projects-filter">
+    <div class="container">
+      <div class="filter-tabs">
+        <button class="filter-tab active" data-filter="all">All</button>
+        <button class="filter-tab" data-filter="academic">Academic</button>
+        <button class="filter-tab" data-filter="hackathon">Hackathon</button>
+        <button class="filter-tab" data-filter="personal">Personal</button>
+      </div>
+      
+      <div class="projects-grid">
+        <!-- Project 1 -->
+        <div class="project-card" data-category="academic">
+          <div class="project-image">
+            <img src="https://via.placeholder.com/400x200?text=Project+1" alt="Project 1">
+            <div class="project-category">Academic</div>
+          </div>
+          <div class="project-content">
+            <h3>Project Title 1</h3>
+            <p>A project developed as part of my coursework at Northwestern University.</p>
+            <div class="project-tags">
+              <span>React</span>
+              <span>Arduino</span>
+              <span>Python</span>
+            </div>
+            <div class="project-links">
+              <a href="projects/project-1.html" class="btn small-btn">View Project <i class="fas fa-arrow-right"></i></a>
+              <a href="https://github.com/yourusername" target="_blank" rel="noopener noreferrer" class="btn small-outline-btn"><i class="fab fa-github"></i> Code</a>
+            </div>
+          </div>
         </div>
-    </header>
-    <main>
-        <div class="WildHacks">
-            <h1>Purrfect Care</h1>
-            
-            <iframe height=370px  width= 50% src="https://www.youtube.com/embed/aGn2oSLvl-Y"></iframe>
-            <div class="WH-description">
-                <h3>Built for WildHacks 2025. Winner of Crowd Favorite.</h3>
-                <p>Purrfect Care🐱💻 – Your Wellness Companion</p>
-                <p>The cutest cat you've ever seen is here to peer pressure you into taking care of yourself while you work!
-                <br>Purrfect Care is a desktop wellness application designed to promote healthy work habits by reminding you to take breaks. 
-                <br>Inspired by the Wellness track at our hackathon, our playful cat—Patches—motivates you to step away from your screen, drink water, and stretch.
-                    
-                <br><b>Overview</b>
-                    <br>In today’s demanding work environment, maintaining physical and mental health is crucial. Purrfect Care uses engaging cat animations and interactive notifications to ensure you never miss a break. Whether you're deep in coding or immersed in creative work, Patches is there to help you practice self-care without sacrificing productivity.
-                    
-                <br><b>Features</b>
-                <ul style="padding-left:20px">
-                    <li>Wellness Break Reminders: Timed notifications prompt you to hydrate, rest your eyes, or stretch.</li>
-                    <li>Animated Cat Companion: Patches provides fun, visual encouragement to step away and care for yourself.</li>
-                    <li>Interactive Notifications: Custom, draggable dialogs appear centered on your screen so you never miss your break.</li>
-                    <li>Chat with Patches: Enjoy uplifting conversations with your AI-powered cat friend to boost your mood and well-being.</li>
-                    <li>Built-In To-Do List: Organize your tasks alongside your wellness breaks within one integrated interface.</li>
-                </ul style="padding-left:20px">
-                    
-                <b>How We Built It</b>
-                <ul style="padding-left:20px">
-                    <li>Languages & Frameworks: Python, PyQt5.</li>
-                    <li>Design: Custom GIFs and images arranged using coordinate-based placement </li>
-                    <li>Challenges: </li>
-                    <ul style="padding-left:20px">
-                        <li>Adapting to various laptop screen sizes.</li>
-                        <li>Ensuring proper placement of animations and text across different devices.</li>
-                    </ul>
-                </ul>
-                    
-                <b>Acknowledgments</b>
-                <ul style="padding-left:20px">
-                    <li>Wellness Inspiration: Special thanks to the Hackathon organizers and the wellness community for inspiring this project. </li>
-                    <li>Reference: How to Take Better Breaks at Work, According to Research – Harvard Business Review.</li>
-                    <li>Cat Assets: Provided by ToffeeCraft.</li>
-                    <li>Font: "dogica" downloaded from DaFont. </li>
-                    <li>Tool Makers: Gratitude to the developers of PyQt5 and Google Generative AI for their robust, open-source tools.</li>
-                    <li>LLM support: ChatGPT & Claude </li>
-                    <li>Team Effort: A big shout-out to our team for their creativity, resilience, and passion in bringing Purrfect Care to life. </li>
-                </ul>
-                </p>
+        
+        <!-- Project 2 -->
+        <div class="project-card" data-category="hackathon">
+          <div class="project-image">
+            <img src="https://via.placeholder.com/400x200?text=Project+2" alt="Project 2">
+            <div class="project-category">Hackathon</div>
+          </div>
+          <div class="project-content">
+            <h3>Project Title 2</h3>
+            <p>A project created during a 48-hour hackathon event.</p>
+            <div class="project-tags">
+              <span>React</span>
+              <span>Arduino</span>
+              <span>Python</span>
             </div>
+            <div class="project-links">
+              <a href="projects/project-2.html" class="btn small-btn">View Project <i class="fas fa-arrow-right"></i></a>
+              <a href="https://github.com/yourusername" target="_blank" rel="noopener noreferrer" class="btn small-outline-btn"><i class="fab fa-github"></i> Code</a>
+            </div>
+          </div>
         </div>
-        <div class="harbor-container">
-            <div class="project-header">
-                <h1>SkyNet System</h1>
-                <p>Design Thinking and Communication Project - Northwestern University Engineering Winter 2025</p>
-                <p>Created by Augustine Villalobos, Charmaine Guo, Ivan Dolphan, and Milo Fernandez
-                     with the guidance of Professor Coney and Professor Rouse</p>
-                <p>*Majority of the CAD designed in Onshape by Milo with consultation from all team members.*</p>
+        
+        <!-- Project 3 -->
+        <div class="project-card" data-category="academic">
+          <div class="project-image">
+            <img src="https://via.placeholder.com/400x200?text=Project+3" alt="Project 3">
+            <div class="project-category">Academic</div>
+          </div>
+          <div class="project-content">
+            <h3>Project Title 3</h3>
+            <p>A project developed as part of my coursework at Northwestern University.</p>
+            <div class="project-tags">
+              <span>React</span>
+              <span>Arduino</span>
+              <span>Python</span>
             </div>
-            <div class="models-container">
-                <div class="model">
-                    <p>Final Version 3.2.1</p>
-                    <model-viewer id="model" 
-                        src="DTC-1/final ver 3.2.1.glb" 
-                        auto-rotate camera-controls>
-                    </model-viewer>
-                </div>
-                <div class="model">
-                    <p>Wall Mount version 1</p>
-                    <model-viewer id="model" 
-                        src="DTC-1/wallmount1.glb" 
-                        auto-rotate camera-controls>
-                    </model-viewer>
-                </div>
-                <div class="model">
-                    <p>Part of wall mount version 3</p>
-                    <model-viewer id="model" 
-                        src="DTC-1/Mount to print v3.glb" 
-                        auto-rotate 
-                        camera-controls>
-                    </model-viewer>
-                </div>
-                <div class="model">
-                    <p>Part of wall mount version 1.1</p>
-                    <model-viewer id="model" 
-                        src="DTC-1/mount final ver 1.1.glb" 
-                        auto-rotate camera-controls>
-                    </model-viewer>
-                </div>
-                <div class="model">
-                    <p>Full print version 1.3</p>
-                    <model-viewer id="model" 
-                        src="DTC-1/full print v 1.3.glb" 
-                        auto-rotate camera-controls>
-                    </model-viewer>
-                </div>
-                <div class="model">
-                    <p>Full Print version 2.1</p>
-                    <model-viewer id="model" 
-                        src="DTC-1/full print v 2.1.glb" 
-                        auto-rotate camera-controls>
-                    </model-viewer>
-                </div>
-                <div class="model">
-                    <p>Full Print version 1.2</p>
-                    <model-viewer id="model" 
-                        src="DTC-1/final prototype ver 1.2.glb" 
-                        auto-rotate camera-controls>
-                    </model-viewer>
-                </div>
+            <div class="project-links">
+              <a href="projects/project-3.html" class="btn small-btn">View Project <i class="fas fa-arrow-right"></i></a>
+              <a href="https://github.com/yourusername" target="_blank" rel="noopener noreferrer" class="btn small-outline-btn"><i class="fab fa-github"></i> Code</a>
             </div>
-            <div class="gallery">
-                <div class="gallery-item">
-                    <h2>Project Poster</h2>
-                    <img src="DTC-1/Skynet.png" alt="SkyNet System Poster">
-                </div>
-
-                <div class="gallery-item">
-                    <h2>Project Report</h2>
-                    <div id="report-viewer" class="pdf-viewer">
-                        <div class="pdf-canvas-container">
-                            <canvas id="report-canvas"></canvas>
-                        </div>
-                    </div>
-                    <div class="pdf-navigation">
-                        <button id="prev-report" class="button">Previous</button>
-                        <span id="report-page-num">Page 1 of 67</span>
-                        <button id="next-report" class="button">Next</button>
-                    </div>
-                </div>
-            </div>
+          </div>
         </div>
-        <div class="yygs">
-            <h2>2023 Yale Young Global Scholars Program</h2>
-            <p>Team: Arnav, Charmaine, Fikir, Ryan, Alex </p>
-            <div class="yygs-pres">
-                <iframe src="https://docs.google.com/presentation/d/e/2PACX-1vR0giBiQ9eiVQAI4bABirpwUL14S5_Fv9kEk2KPd0M68xjBCIqBaAElE4neh-jljExRTFytT_cbQi93/embed?start=false&loop=false&delayms=3000" 
-                frameborder="0" width="960" height="569" allowfullscreen="true" mozallowfullscreen="true" 
-                webkitallowfullscreen="true"></iframe>
+        
+        <!-- Project 4 -->
+        <div class="project-card" data-category="hackathon">
+          <div class="project-image">
+            <img src="https://via.placeholder.com/400x200?text=Project+4" alt="Project 4">
+            <div class="project-category">Hackathon</div>
+          </div>
+          <div class="project-content">
+            <h3>Project Title 4</h3>
+            <p>A project created during a 48-hour hackathon event.</p>
+            <div class="project-tags">
+              <span>React</span>
+              <span>Arduino</span>
+              <span>Python</span>
             </div>
+            <div class="project-links">
+              <a href="projects/project-4.html" class="btn small-btn">View Project <i class="fas fa-arrow-right"></i></a>
+              <a href="https://github.com/yourusername" target="_blank" rel="noopener noreferrer" class="btn small-outline-btn"><i class="fab fa-github"></i> Code</a>
+            </div>
+          </div>
         </div>
-    </main>
+        
+        <!-- Project 5 -->
+        <div class="project-card" data-category="academic">
+          <div class="project-image">
+            <img src="https://via.placeholder.com/400x200?text=Project+5" alt="Project 5">
+            <div class="project-category">Academic</div>
+          </div>
+          <div class="project-content">
+            <h3>Project Title 5</h3>
+            <p>A project developed as part of my coursework at Northwestern University.</p>
+            <div class="project-tags">
+              <span>React</span>
+              <span>Arduino</span>
+              <span>Python</span>
+            </div>
+            <div class="project-links">
+              <a href="projects/project-5.html" class="btn small-btn">View Project <i class="fas fa-arrow-right"></i></a>
+              <a href="https://github.com/yourusername" target="_blank" rel="noopener noreferrer" class="btn small-outline-btn"><i class="fab fa-github"></i> Code</a>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Project 6 -->
+        <div class="project-card" data-category="personal">
+          <div class="project-image">
+            <img src="https://via.placeholder.com/400x200?text=Project+6" alt="Project 6">
+            <div class="project-category">Personal</div>
+          </div>
+          <div class="project-content">
+            <h3>Project Title 6</h3>
+            <p>A personal project developed to explore new technologies and concepts.</p>
+            <div class="project-tags">
+              <span>React</span>
+              <span>Arduino</span>
+              <span>Python</span>
+            </div>
+            <div class="project-links">
+              <a href="projects/project-6.html" class="btn small-btn">View Project <i class="fas fa-arrow-right"></i></a>
+              <a href="https://github.com/yourusername" target="_blank" rel="noopener noreferrer" class="btn small-outline-btn"><i class="fab fa-github"></i> Code</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-    <script>
-        // PDF Viewer Function
-        function setupPDFViewer(pdfPath, canvasIds, prevButtonId, nextButtonId, pageNumSpanId) {
-            let pdfDoc = null;
-            let pageNum = 1;
-            let pageRendering = false;
-            let pageNumPending = null;
-            const canvasElements = canvasIds.map(id => document.getElementById(id));
-            const prevButton = document.getElementById(prevButtonId);
-            const nextButton = document.getElementById(nextButtonId);
-            const pageNumSpan = document.getElementById(pageNumSpanId);
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-text">
+          <p>&copy; <span id="current-year"></span> YourName. All rights reserved.</p>
+        </div>
+        <div class="social-links">
+          <a href="mailto:your.email@example.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+          <a href="https://github.com/yourusername" aria-label="GitHub"><i class="fab fa-github"></i></a>
+          <a href="https://linkedin.com/in/yourusername" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+          <a href="https://twitter.com/yourusername" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+        </div>
+      </div>
+    </div>
+  </footer>
 
-            function renderPage(num) {
-                pageRendering = true;
-                pdfDoc.getPage(num).then(function(page) {
-                    const viewport = page.getViewport({scale: 1.25});
-                    
-                    // If multiple canvases, distribute pages
-                    canvasElements.forEach((canvas, index) => {
-                        canvas.height = viewport.height;
-                        canvas.width = viewport.width;
-                        
-                        const context = canvas.getContext('2d');
-                        const renderContext = {
-                            canvasContext: context,
-                            viewport: viewport
-                        };
-                        
-                        // Render specific page for each canvas
-                        if (canvasElements.length > 1) {
-                            page = pdfDoc.getPage(num + index);
-                        }
-                        
-                        page.render(renderContext);
-                    });
-
-                    pageRendering = false;
-                    if (pageNumPending !== null) {
-                        renderPage(pageNumPending);
-                        pageNumPending = null;
-                    }
-                });
-
-                pageNumSpan.textContent = `Page ${num} of ${pdfDoc.numPages}`;
-            }
-
-            function queueRenderPage(num) {
-                if (pageRendering) {
-                    pageNumPending = num;
-                } else {
-                    renderPage(num);
-                }
-            }
-
-            function onPrevPage() {
-                if (pageNum > 1) {
-                    pageNum--;
-                    queueRenderPage(pageNum);
-                }
-            }
-
-            function onNextPage() {
-                if (pageNum < pdfDoc.numPages) {
-                    pageNum++;
-                    queueRenderPage(pageNum);
-                }
-            }
-
-            // Load PDF
-            pdfjsLib.getDocument(pdfPath).promise.then(function(pdfDoc_) {
-                pdfDoc = pdfDoc_;
-                renderPage(pageNum);
-            });
-
-            prevButton.addEventListener('click', onPrevPage);
-            nextButton.addEventListener('click', onNextPage);
-        }
-
-        // Setup Report PDF Viewer
-        setupPDFViewer(
-            'DTC-1/Skynet_System_t4s13w25_Final_Report.pdf', 
-            ['report-canvas'], 
-            'prev-report', 
-            'next-report', 
-            'report-page-num'
-        );
-    </script>
+  <script src="js/script.js"></script>
 </body>
 </html>
