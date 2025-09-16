@@ -6,9 +6,12 @@ import smiski2 from './assets/images/smiski2.png';
 import smiski3 from './assets/images/smiski3.png';
 import miffy1 from './assets/images/miffy1.png';
 import catbus from './assets/images/cat-bus.png';
+import usb from './assets/images/usb-drive.png';
 import digicam from './assets/images/digicam.png';
 import snailshell1 from './assets/images/snailshell1.png';
 import snailshell2 from './assets/images/snailshell2.png';
+import sunglasses from './assets/images/sunglasses.png';
+
 
 // Import your shelf background image
 import shelfBackgroundImage from './assets/images/trinket-wall-bg.png';
@@ -101,12 +104,21 @@ const ShelfPortfolio = () => {
     },
     { 
       id: 'catbus', 
-      left: '43%', 
-      top: '7.5%', 
-      width: '12%',
+      left: '54%', 
+      top: '6%', 
+      width: '19%',
       label: 'Contact',
       description: 'Let\'s connect',
       image: catbus
+    },
+    { 
+      id: 'usb', 
+      left: '32%', 
+      top: '34%', 
+      width: '7.5%',
+      label: 'Contact',
+      description: 'Let\'s connect',
+      image: usb
     },
     { 
       id: 'digicam', 
@@ -128,12 +140,21 @@ const ShelfPortfolio = () => {
     },
     { 
       id: 'snailshell2', 
-      left: '75%', 
-      top: '72%', 
-      width: '15%',
+      left: '60.5%', 
+      top: '56%', 
+      width: '12%',
       label: 'Gallery',
       description: 'Creative collection',
       image: snailshell2
+    },
+    { 
+      id: 'sunglasses', 
+      left: '35.5%', 
+      top: '72%', 
+      width: '14%',
+      label: 'Gallery',
+      description: 'Creative collection',
+      image: sunglasses
     }
   ];
 
