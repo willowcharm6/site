@@ -16,8 +16,11 @@ import sunglasses from './assets/images/sunglasses.png';
 // Import your shelf background image
 import shelfBackgroundImage from './assets/images/trinket-wall-bg.png';
 
+import Resume from './components/Resume';
+
 const ShelfPortfolio = () => {
   const [hoveredItem, setHoveredItem] = useState(null);
+  const [currentPage, setCurrentPage] = useState('portfolio');
   const [windowSize, setWindowSize] = useState({
     width: window.innerWidth,
     height: window.innerHeight
@@ -33,7 +36,8 @@ const ShelfPortfolio = () => {
     };
 
     window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
+
+  return () => window.removeEventListener('resize', handleResize);
   }, []);
 
   // Calculate shelf dimensions based on window size
@@ -159,8 +163,21 @@ const ShelfPortfolio = () => {
   ];
 
   const handleItemClick = (item) => {
-    console.log(`Navigating to: ${item.label}`);
+    console.log('Clicked item:', item); // Debug log
+    console.log('Item label:', item.label); // Debug log
+    
+    if (item.label === 'Resume') {
+      console.log('Setting page to resume'); // Debug log
+      setCurrentPage('resume');
+    } else {
+      console.log(`Navigating to: ${item.label}`);
+      // Add other page navigation here later
+    }
   };
+
+  if (currentPage === 'resume') {
+    return <Resume onBack={() => setCurrentPage('portfolio')} />;
+  }
 
   const styles = {
     container: {
@@ -226,7 +243,7 @@ const ShelfPortfolio = () => {
       aspectRatio: '1',
       boxShadow: '0 10px 15px -3px rgba(0, 0, 0, 0.1)',
       overflow: 'hidden',
-      border: '2px solid rgba(255, 255, 255, 0.8)'
+      border: '2px solid rgba(211, 211, 211, 0.8)'
     },
     itemImage: {
       height: '100%',
@@ -285,6 +302,7 @@ const ShelfPortfolio = () => {
   };
 
   return (
+    
     <div style={styles.container}>
       {/* Navigation hint */}
       <div style={styles.navigation}>
