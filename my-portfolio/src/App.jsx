@@ -183,7 +183,7 @@ const ShelfPortfolio = () => {
     return <Resume onBack={() => setCurrentPage('portfolio')} />;
   }
   if (currentPage === 'aboutme') {
-    return <AboutMe onBack={() => setCurrentPage('aboutme')} />;
+    return <AboutMe onBack={() => setCurrentPage('portfolio')} />;
   }
 
   const styles = {

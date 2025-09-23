@@ -50,6 +50,62 @@ const AboutMe = ({ onBack }) => {
       maxWidth: 150,
       initialX: 800,
       initialY: 300
+    },
+    { 
+      id: 'meonabench', 
+      src: '/images/aboutme/meonabench.png', 
+      maxWidth: 250,
+      initialX: 300,
+      initialY: 300
+    },
+    { 
+      id: 'montrealpark', 
+      src: '/images/aboutme/montrealpark.png', 
+      maxWidth: 150,
+      initialX: 450,
+      initialY: 80
+    },
+    { 
+      id: 'popover', 
+      src: '/images/aboutme/popover.png', 
+      maxWidth: 150,
+      initialX: 700,
+      initialY: 250
+    },
+    { 
+      id: 'sealion', 
+      src: '/images/aboutme/sealion.png', 
+      maxWidth: 150,
+      initialX: 50,
+      initialY: 450
+    },
+    { 
+      id: 'seahorses', 
+      src: '/images/aboutme/seahorses.png', 
+      maxWidth: 150,
+      initialX: 400,
+      initialY: 500
+    },
+    { 
+      id: 'sewing', 
+      src: '/images/aboutme/sewing.png', 
+      maxWidth: 150,
+      initialX: 650,
+      initialY: 420
+    },
+    { 
+      id: 'stingray', 
+      src: '/images/aboutme/stingray.png', 
+      maxWidth: 150,
+      initialX: 150,
+      initialY: 250
+    },
+    { 
+      id: 'turtle', 
+      src: '/images/aboutme/turtle.png', 
+      maxWidth: 150,
+      initialX: 550,
+      initialY: 180
     }
   ];
 
@@ -77,7 +133,7 @@ const AboutMe = ({ onBack }) => {
             vy: 0, // velocity y
             mass: (width * height) / 10000, // mass based on size
             zIndex: Math.floor(Math.random() * 100),
-            rotation: (photoData.id.charCodeAt(photoData.id.length - 1) % 21) - 10
+            // rotation: (photoData.id.charCodeAt(photoData.id.length - 1) % 21) - 10
           });
         };
         img.onerror = () => {
