@@ -1,22 +1,23 @@
 import { useState, useEffect } from 'react';
 
 // Import your images
-import smiski1 from './assets/images/smiski1.png';
-import smiski2 from './assets/images/smiski2.png';
-import smiski3 from './assets/images/smiski3.png';
-import miffy1 from './assets/images/miffy1.png';
-import catbus from './assets/images/cat-bus.png';
-import usb from './assets/images/usb-drive.png';
-import digicam from './assets/images/digicam.png';
-import snailshell1 from './assets/images/snailshell1.png';
-import snailshell2 from './assets/images/snailshell2.png';
-import sunglasses from './assets/images/sunglasses.png';
+import smiski1 from '/images/home/smiski1.png';
+import smiski2 from '/images/home/smiski2.png';
+import smiski3 from '/images/home/smiski3.png';
+import miffy1 from '/images/home/miffy1.png';
+import catbus from '/images/home/cat-bus.png';
+import usb from '/images/home/usb-drive.png';
+import digicam from '/images/home/digicam.png';
+import snailshell1 from '/images/home/snailshell1.png';
+import snailshell2 from '/images/home/snailshell2.png';
+import sunglasses from '/images/home/sunglasses.png';
 
 
 // Import your shelf background image
-import shelfBackgroundImage from './assets/images/trinket-wall-bg.png';
+import shelfBackgroundImage from '/images/home/trinket-wall-bg.png';
 
 import Resume from './components/Resume';
+import AboutMe from './components/AboutMe';
 
 const ShelfPortfolio = () => {
   const [hoveredItem, setHoveredItem] = useState(null);
@@ -169,6 +170,9 @@ const ShelfPortfolio = () => {
     if (item.label === 'Resume') {
       console.log('Setting page to resume'); // Debug log
       setCurrentPage('resume');
+    }
+      else if (item.label === 'About Me') { 
+      setCurrentPage('aboutme');
     } else {
       console.log(`Navigating to: ${item.label}`);
       // Add other page navigation here later
@@ -177,6 +181,9 @@ const ShelfPortfolio = () => {
 
   if (currentPage === 'resume') {
     return <Resume onBack={() => setCurrentPage('portfolio')} />;
+  }
+  if (currentPage === 'aboutme') {
+    return <AboutMe onBack={() => setCurrentPage('aboutme')} />;
   }
 
   const styles = {
