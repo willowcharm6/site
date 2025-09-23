@@ -40,7 +40,7 @@ const AboutMe = ({ onBack }) => {
     { 
       id: 'fish', 
       src: '/images/aboutme/fish.jpg', 
-      maxWidth: 170,
+      maxWidth: 270,
       initialX: 500,
       initialY: 400
     },
@@ -61,7 +61,7 @@ const AboutMe = ({ onBack }) => {
     { 
       id: 'montrealpark', 
       src: '/images/aboutme/montrealpark.png', 
-      maxWidth: 150,
+      maxWidth: 350,
       initialX: 450,
       initialY: 80
     },
