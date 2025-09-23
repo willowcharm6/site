@@ -7,53 +7,47 @@ const AboutMe = ({ onBack }) => {
   const [photos, setPhotos] = useState([]);
   const [containerSize, setContainerSize] = useState({ width: 0, height: 0 });
 
-  // Your photo data - replace with your actual images
+  // Your photo data - dimensions will be calculated from actual images
   const photoData = [
     { 
       id: 'breakfast', 
       src: '/images/aboutme/breakfast.png', 
-      width: 200, 
-      height: 150,
+      maxWidth: 200, // Maximum width you want
       initialX: 100,
       initialY: 100
     },
     { 
       id: 'dog', 
       src: '/images/aboutme/drink.png', 
-      width: 180, 
-      height: 180,
+      maxWidth: 180,
       initialX: 350,
       initialY: 200
     },
     { 
       id: 'drink', 
       src: '/images/aboutme/dog.png', 
-      width: 160, 
-      height: 120,
+      maxWidth: 160,
       initialX: 600,
       initialY: 150
     },
     { 
       id: 'ferret', 
       src: '/images/aboutme/ferret.png', 
-      width: 190, 
-      height: 140,
+      maxWidth: 190,
       initialX: 200,
       initialY: 350
     },
     { 
       id: 'fish', 
       src: '/images/aboutme/fish.jpg', 
-      width: 170, 
-      height: 170,
+      maxWidth: 170,
       initialX: 500,
       initialY: 400
     },
     { 
       id: 'icecream', 
       src: '/images/aboutme/icecream.png', 
-      width: 150, 
-      height: 200,
+      maxWidth: 150,
       initialX: 800,
       initialY: 300
     }
@@ -61,19 +55,58 @@ const AboutMe = ({ onBack }) => {
 
   // Initialize photos with physics properties
   useEffect(() => {
-    if (containerSize.width > 0) {
-      const initialPhotos = photoData.map(photo => ({
-        ...photo,
-        x: Math.min(photo.initialX, containerSize.width - photo.width),
-        y: Math.min(photo.initialY, containerSize.height - photo.height),
-        vx: 0, // velocity x
-        vy: 0, // velocity y
-        mass: (photo.width * photo.height) / 10000, // mass based on size
-        zIndex: Math.floor(Math.random() * 100),
-        rotation: (photo.id.charCodeAt(photo.id.length - 1) % 21) - 10
-      }));
+    if (containerSize.width === 0) return;
+
+    // Function to load image and get its natural dimensions
+    const loadImageDimensions = (photoData) => {
+      return new Promise((resolve) => {
+        const img = new Image();
+        img.onload = () => {
+          // Calculate dimensions maintaining aspect ratio
+          const aspectRatio = img.naturalHeight / img.naturalWidth;
+          const width = photoData.maxWidth;
+          const height = width * aspectRatio;
+          
+          resolve({
+            ...photoData,
+            width,
+            height,
+            x: Math.min(photoData.initialX, containerSize.width - width),
+            y: Math.min(photoData.initialY, containerSize.height - height),
+            vx: 0, // velocity x
+            vy: 0, // velocity y
+            mass: (width * height) / 10000, // mass based on size
+            zIndex: Math.floor(Math.random() * 100),
+            rotation: (photoData.id.charCodeAt(photoData.id.length - 1) % 21) - 10
+          });
+        };
+        img.onerror = () => {
+          // Fallback if image fails to load
+          resolve({
+            ...photoData,
+            width: photoData.maxWidth,
+            height: photoData.maxWidth, // Square fallback
+            x: Math.min(photoData.initialX, containerSize.width - photoData.maxWidth),
+            y: Math.min(photoData.initialY, containerSize.height - photoData.maxWidth),
+            vx: 0,
+            vy: 0,
+            mass: (photoData.maxWidth * photoData.maxWidth) / 10000,
+            zIndex: Math.floor(Math.random() * 100),
+            rotation: (photoData.id.charCodeAt(photoData.id.length - 1) % 21) - 10
+          });
+        };
+        img.src = photoData.src;
+      });
+    };
+
+    // Load all images and set up photos
+    const initializePhotos = async () => {
+      const photoPromises = photoData.map(photo => loadImageDimensions(photo));
+      const initialPhotos = await Promise.all(photoPromises);
       setPhotos(initialPhotos);
-    }
+    };
+
+    initializePhotos();
   }, [containerSize]);
 
   // Physics simulation
@@ -124,7 +157,7 @@ const AboutMe = ({ onBack }) => {
             const photo2 = newPhotos[j];
 
             // Skip if either is being dragged
-            if (dragging?.id === photo1.id || dragging?.id === photo2.id) continue;
+            // if (dragging?.id === photo1.id || dragging?.id === photo2.id) continue;
 
             // Calculate centers
             const cx1 = photo1.x + photo1.width / 2;
@@ -303,7 +336,7 @@ const AboutMe = ({ onBack }) => {
     container: {
       width: '100vw',
       height: '100vh',
-      background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+      background: 'rgb(255, 255, 255)',
       position: 'relative',
       overflow: 'hidden',
       cursor: dragging ? 'grabbing' : 'default'
@@ -347,19 +380,18 @@ const AboutMe = ({ onBack }) => {
     },
     photo: {
       position: 'absolute',
-      borderRadius: '12px',
       boxShadow: '0 8px 32px rgba(0,0,0,0.3)',
       transition: dragging ? 'none' : 'transform 0.2s ease',
       cursor: 'grab',
       userSelect: 'none',
-      border: '4px solid rgba(255,255,255,0.9)'
+      overflow: 'hidden', // This helps contain the image
     },
     photoImage: {
       width: '100%',
       height: '100%',
-      objectFit: 'cover',
-      borderRadius: '8px',
-      pointerEvents: 'none'
+      objectFit: 'contain', // Back to contain since dimensions now match
+      pointerEvents: 'none',
+      display: 'block' // Removes any inline spacing
     },
     instructions: {
       position: 'fixed',
@@ -405,9 +437,6 @@ const AboutMe = ({ onBack }) => {
         ← Back
       </button>
 
-      <div style={styles.title}>About Me</div>
-      <div style={styles.subtitle}>Drag photos around - they bounce!</div>
-
       {photos.map(photo => (
         <div
           key={photo.id}
@@ -424,7 +453,7 @@ const AboutMe = ({ onBack }) => {
       ))}
 
       <div style={styles.instructions}>
-        Drag and throw photos around - watch them bounce off each other! ✨
+        Drag and throw photos around! 
       </div>
     </div>
   );
