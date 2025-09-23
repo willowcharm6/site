@@ -398,19 +398,17 @@ const AboutMe = ({ onBack }) => {
       cursor: dragging ? 'grabbing' : 'default'
     },
     backButton: {
-      position: 'fixed',
+      position: 'absolute',
       top: '20px',
       left: '20px',
-      zIndex: 1000,
+      zIndex: 10,
       background: 'rgba(0, 0, 0, 0.7)',
       color: 'white',
       border: 'none',
-      padding: '12px 24px',
-      borderRadius: '25px',
+      padding: '10px 20px',
+      borderRadius: '5px',
       cursor: 'pointer',
-      fontSize: '14px',
-      fontWeight: '500',
-      backdropFilter: 'blur(10px)'
+      fontSize: '14px'
     },
     title: {
       position: 'fixed',

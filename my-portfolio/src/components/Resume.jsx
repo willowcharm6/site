@@ -35,7 +35,7 @@ const Resume = ({ onBack }) => {
         style={styles.backButton}
         onClick={onBack}
       >
-        ← Back to Portfolio
+        ← Back
       </button>
       <iframe 
         src="/resume/Charmaine_Guo_Resume.pdf"
