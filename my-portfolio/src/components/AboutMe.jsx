@@ -6,26 +6,86 @@ const AboutMe = ({ onBack }) => {
   const [dragging, setDragging] = useState(null);
   const [photos, setPhotos] = useState([]);
   const [containerSize, setContainerSize] = useState({ width: 0, height: 0 });
+  const [selectedPhoto, setSelectedPhoto] = useState(null);
 
-  // Your photo data - dimensions will be calculated from actual images
+  // Photo descriptions
+  const photoDescriptions = {
+    breakfast: {
+      title: 'Treats',
+      description: 'I love to bake pastries, check out my favorite recipes.'
+    },
+    dog: {
+      title: 'Dog',
+      description: 'A furry friend bringing joy and companionship to everyday moments.'
+    },
+    drink: {
+      title: 'Drink',
+      description: 'A refreshing beverage to enjoy during a break.'
+    },
+    ferret: {
+      title: 'Ferret',
+      description: 'An adorable and playful little companion.'
+    },
+    fish: {
+      title: 'Fish',
+      description: 'Beautiful aquatic life captured in a moment.'
+    },
+    icecream: {
+      title: 'Ice Cream',
+      description: 'A sweet treat to enjoy on any day.'
+    },
+    meonabench: {
+      title: 'Me on a Bench',
+      description: 'A moment of relaxation and reflection.'
+    },
+    montrealpark: {
+      title: 'Montreal Park',
+      description: 'Exploring the natural beauty of Montreal\'s parks.'
+    },
+    popover: {
+      title: 'Popover',
+      description: 'A delightful baked good, fresh and warm.'
+    },
+    sealion: {
+      title: 'Sea Lion',
+      description: 'An incredible marine mammal in its natural habitat.'
+    },
+    seahorses: {
+      title: 'Seahorses',
+      description: 'Magical creatures of the ocean, graceful and unique.'
+    },
+    sewing: {
+      title: 'Sewing',
+      description: 'Crafting and creating with needle and thread.'
+    },
+    stingray: {
+      title: 'Stingray',
+      description: 'A fascinating and graceful sea creature gliding through water.'
+    },
+    turtle: {
+      title: 'Turtle',
+      description: 'A slow-moving, gentle creature of wisdom and patience.'
+    }
+  };
+
   const photoData = [
     { 
       id: 'breakfast', 
       src: '/images/aboutme/breakfast.png', 
-      maxWidth: 200, // Maximum width you want
+      maxWidth: 200,
       initialX: 100,
       initialY: 100
     },
     { 
       id: 'dog', 
-      src: '/images/aboutme/drink.png', 
+      src: '/images/aboutme/dog.png', 
       maxWidth: 180,
       initialX: 350,
       initialY: 200
     },
     { 
       id: 'drink', 
-      src: '/images/aboutme/dog.png', 
+      src: '/images/aboutme/drink.png', 
       maxWidth: 160,
       initialX: 600,
       initialY: 150
@@ -113,12 +173,10 @@ const AboutMe = ({ onBack }) => {
   useEffect(() => {
     if (containerSize.width === 0) return;
 
-    // Function to load image and get its natural dimensions
     const loadImageDimensions = (photoData) => {
       return new Promise((resolve) => {
         const img = new Image();
         img.onload = () => {
-          // Calculate dimensions maintaining aspect ratio
           const aspectRatio = img.naturalHeight / img.naturalWidth;
           const width = photoData.maxWidth;
           const height = width * aspectRatio;
@@ -129,19 +187,17 @@ const AboutMe = ({ onBack }) => {
             height,
             x: Math.min(photoData.initialX, containerSize.width - width),
             y: Math.min(photoData.initialY, containerSize.height - height),
-            vx: 0, // velocity x
-            vy: 0, // velocity y
-            mass: (width * height) / 10000, // mass based on size
+            vx: 0,
+            vy: 0,
+            mass: (width * height) / 10000,
             zIndex: Math.floor(Math.random() * 100),
-            // rotation: (photoData.id.charCodeAt(photoData.id.length - 1) % 21) - 10
           });
         };
         img.onerror = () => {
-          // Fallback if image fails to load
           resolve({
             ...photoData,
             width: photoData.maxWidth,
-            height: photoData.maxWidth, // Square fallback
+            height: photoData.maxWidth,
             x: Math.min(photoData.initialX, containerSize.width - photoData.maxWidth),
             y: Math.min(photoData.initialY, containerSize.height - photoData.maxWidth),
             vx: 0,
@@ -155,7 +211,6 @@ const AboutMe = ({ onBack }) => {
       });
     };
 
-    // Load all images and set up photos
     const initializePhotos = async () => {
       const photoPromises = photoData.map(photo => loadImageDimensions(photo));
       const initialPhotos = await Promise.all(photoPromises);
@@ -172,22 +227,18 @@ const AboutMe = ({ onBack }) => {
     const updatePhysics = () => {
       setPhotos(prevPhotos => {
         const newPhotos = [...prevPhotos];
-        const friction = 0.98; // Slow down over time
-        const bounce = 0.7; // How bouncy collisions are
+        const friction = 0.98;
+        const bounce = 0.7;
 
-        // Update positions and handle wall collisions
         newPhotos.forEach(photo => {
-          if (dragging?.id === photo.id) return; // Skip dragged photo
+          if (dragging?.id === photo.id) return;
 
-          // Apply velocity to position
           photo.x += photo.vx;
           photo.y += photo.vy;
 
-          // Apply friction
           photo.vx *= friction;
           photo.vy *= friction;
 
-          // Wall collisions
           if (photo.x <= 0) {
             photo.x = 0;
             photo.vx = Math.abs(photo.vx) * bounce;
@@ -206,37 +257,26 @@ const AboutMe = ({ onBack }) => {
           }
         });
 
-        // Check collisions between photos
         for (let i = 0; i < newPhotos.length; i++) {
           for (let j = i + 1; j < newPhotos.length; j++) {
             const photo1 = newPhotos[i];
             const photo2 = newPhotos[j];
 
-            // Skip if either is being dragged
-            // if (dragging?.id === photo1.id || dragging?.id === photo2.id) continue;
-
-            // Calculate centers
             const cx1 = photo1.x + photo1.width / 2;
             const cy1 = photo1.y + photo1.height / 2;
             const cx2 = photo2.x + photo2.width / 2;
             const cy2 = photo2.y + photo2.height / 2;
 
-            // Calculate distance
             const dx = cx2 - cx1;
             const dy = cy2 - cy1;
             const distance = Math.sqrt(dx * dx + dy * dy);
 
-            // Minimum distance for collision (average of both photos' sizes)
             const minDistance = ((photo1.width + photo1.height) / 4) + ((photo2.width + photo2.height) / 4);
 
             if (distance < minDistance && distance > 0) {
-              // Collision detected! Calculate collision response
-
-              // Normalize collision vector
               const nx = dx / distance;
               const ny = dy / distance;
 
-              // Separate photos to prevent overlap
               const overlap = minDistance - distance;
               const separateX = nx * overlap * 0.5;
               const separateY = ny * overlap * 0.5;
@@ -246,19 +286,15 @@ const AboutMe = ({ onBack }) => {
               photo2.x += separateX;
               photo2.y += separateY;
 
-              // Calculate relative velocity
               const rvx = photo2.vx - photo1.vx;
               const rvy = photo2.vy - photo1.vy;
               const speed = rvx * nx + rvy * ny;
 
-              // Don't resolve if velocities are separating
               if (speed > 0) continue;
 
-              // Calculate restitution (bounciness)
               const restitution = 0.8;
               const impulse = 2 * speed / (photo1.mass + photo2.mass);
 
-              // Update velocities
               photo1.vx += impulse * photo2.mass * nx * restitution;
               photo1.vy += impulse * photo2.mass * ny * restitution;
               photo2.vx -= impulse * photo1.mass * nx * restitution;
@@ -271,7 +307,6 @@ const AboutMe = ({ onBack }) => {
       });
     };
 
-    // Start animation loop
     const animate = () => {
       updatePhysics();
       animationRef.current = requestAnimationFrame(animate);
@@ -305,6 +340,9 @@ const AboutMe = ({ onBack }) => {
     e.preventDefault();
     const rect = e.currentTarget.getBoundingClientRect();
     
+    const photo = photos.find(p => p.id === photoId);
+    setSelectedPhoto(photo);
+    
     setDragging({
       id: photoId,
       offsetX: e.clientX - rect.left,
@@ -314,7 +352,6 @@ const AboutMe = ({ onBack }) => {
       lastTime: Date.now()
     });
 
-    // Bring to front and stop movement
     setPhotos(prev => prev.map(p => 
       p.id === photoId 
         ? { ...p, zIndex: Math.max(...prev.map(ph => ph.zIndex)) + 1, vx: 0, vy: 0 }
@@ -333,14 +370,12 @@ const AboutMe = ({ onBack }) => {
     let newX = e.clientX - containerRect.left - dragging.offsetX;
     let newY = e.clientY - containerRect.top - dragging.offsetY;
 
-    // Keep within bounds
     newX = Math.max(0, Math.min(newX, containerSize.width - photo.width));
     newY = Math.max(0, Math.min(newY, containerSize.height - photo.height));
 
-    // Calculate velocity for when we release
     const timeDelta = now - dragging.lastTime;
     if (timeDelta > 0) {
-      const vx = (e.clientX - dragging.lastX) / timeDelta * 16; // Scale for 60fps
+      const vx = (e.clientX - dragging.lastX) / timeDelta * 16;
       const vy = (e.clientY - dragging.lastY) / timeDelta * 16;
       
       setDragging(prev => ({
@@ -361,12 +396,11 @@ const AboutMe = ({ onBack }) => {
   // Handle drag end
   const handleMouseUp = () => {
     if (dragging) {
-      // Apply release velocity
       setPhotos(prev => prev.map(p => 
         p.id === dragging.id 
           ? { 
               ...p, 
-              vx: (dragging.velocityX || 0) * 0.5, // Scale down the velocity
+              vx: (dragging.velocityX || 0) * 0.5,
               vy: (dragging.velocityY || 0) * 0.5 
             }
           : p
@@ -438,14 +472,14 @@ const AboutMe = ({ onBack }) => {
       transition: dragging ? 'none' : 'transform 0.2s ease',
       cursor: 'grab',
       userSelect: 'none',
-      overflow: 'hidden', // This helps contain the image
+      overflow: 'hidden',
     },
     photoImage: {
       width: '100%',
       height: '100%',
-      objectFit: 'contain', // Back to contain since dimensions now match
+      objectFit: 'contain',
       pointerEvents: 'none',
-      display: 'block' // Removes any inline spacing
+      display: 'block'
     },
     instructions: {
       position: 'fixed',
@@ -461,10 +495,56 @@ const AboutMe = ({ onBack }) => {
       padding: '12px 24px',
       borderRadius: '25px',
       backdropFilter: 'blur(10px)'
+    },
+    sidebar: {
+      position: 'fixed',
+      right: 0,
+      top: 0,
+      height: '100vh',
+      width: '350px',
+      background: 'rgba(20, 20, 20, 0.95)',
+      backdropFilter: 'blur(10px)',
+      zIndex: 999,
+      padding: '30px 24px',
+      boxShadow: '-4px 0 16px rgba(0, 0, 0, 0.3)',
+      transform: selectedPhoto ? 'translateX(0)' : 'translateX(100%)',
+      transition: 'transform 0.3s ease',
+      overflowY: 'auto',
+      color: 'white'
+    },
+    closeSidebar: {
+      position: 'absolute',
+      top: '20px',
+      right: '20px',
+      background: 'none',
+      border: 'none',
+      color: 'white',
+      fontSize: '24px',
+      cursor: 'pointer',
+      padding: '0',
+      width: '30px',
+      height: '30px',
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+      opacity: 0.7,
+      transition: 'opacity 0.2s ease',
+    },
+    sidebarTitle: {
+      fontSize: '1.8rem',
+      fontWeight: '600',
+      marginBottom: '16px',
+      marginTop: '20px',
+      color: 'white'
+    },
+    sidebarDescription: {
+      fontSize: '1rem',
+      lineHeight: '1.6',
+      color: 'rgba(255, 255, 255, 0.85)',
+      marginBottom: '20px'
     }
   };
 
-  // Get photo style with physics
   const getPhotoStyle = (photo) => {
     return {
       ...styles.photo,
@@ -476,6 +556,11 @@ const AboutMe = ({ onBack }) => {
       transform: `rotate(${photo.rotation}deg) ${dragging?.id === photo.id ? 'scale(1.05)' : 'scale(1)'}`,
       cursor: dragging?.id === photo.id ? 'grabbing' : 'grab'
     };
+  };
+
+  const getPhotoDescription = () => {
+    if (!selectedPhoto) return null;
+    return photoDescriptions[selectedPhoto.id] || { title: 'Unknown', description: '' };
   };
 
   return (
@@ -507,7 +592,28 @@ const AboutMe = ({ onBack }) => {
       ))}
 
       <div style={styles.instructions}>
-        Drag and throw photos around! 
+        Drag and throw photos around! Click to learn more.
+      </div>
+
+      <div style={styles.sidebar}>
+        <button
+          style={styles.closeSidebar}
+          onClick={() => setSelectedPhoto(null)}
+          onMouseEnter={(e) => e.target.style.opacity = '1'}
+          onMouseLeave={(e) => e.target.style.opacity = '0.7'}
+        >
+          ✕
+        </button>
+        {selectedPhoto && (
+          <>
+            <h2 style={styles.sidebarTitle}>
+              {getPhotoDescription().title}
+            </h2>
+            <p style={styles.sidebarDescription}>
+              {getPhotoDescription().description}
+            </p>
+          </>
+        )}
       </div>
     </div>
   );

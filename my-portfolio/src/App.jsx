@@ -18,6 +18,7 @@ import shelfBackgroundImage from '/images/home/trinket-wall-bg.png';
 
 import Resume from './components/Resume';
 import AboutMe from './components/AboutMe';
+import Contact from './components/Contact';
 
 const ShelfPortfolio = () => {
   const [hoveredItem, setHoveredItem] = useState(null);
@@ -168,11 +169,12 @@ const ShelfPortfolio = () => {
     console.log('Item label:', item.label); // Debug log
     
     if (item.label === 'Resume') {
-      console.log('Setting page to resume'); // Debug log
       setCurrentPage('resume');
     }
       else if (item.label === 'About Me') { 
       setCurrentPage('aboutme');
+    } else if (item.label === 'Contact') {
+      setCurrentPage('contact');
     } else {
       console.log(`Navigating to: ${item.label}`);
       // Add other page navigation here later
@@ -184,6 +186,9 @@ const ShelfPortfolio = () => {
   }
   if (currentPage === 'aboutme') {
     return <AboutMe onBack={() => setCurrentPage('portfolio')} />;
+  }
+  if (currentPage === 'contact') {
+    return <Contact onBack={() => setCurrentPage('portfolio')} />;
   }
 
   const styles = {
