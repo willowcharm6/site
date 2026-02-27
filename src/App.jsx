@@ -19,6 +19,7 @@ import shelfBackgroundImage from '/images/home/trinket-wall-bg.png';
 import Resume from './components/Resume';
 import AboutMe from './components/AboutMe';
 import Contact from './components/Contact';
+import FormulaPage from './components/FormulaPage';
 
 const ShelfPortfolio = () => {
   const [hoveredItem, setHoveredItem] = useState(null);
@@ -74,36 +75,36 @@ const ShelfPortfolio = () => {
   const shelfItems = [
     { 
       id: 'smiski1', 
-      left: '15%', 
-      top: '7%', 
-      width: '12%',
+      left: '10.5%', 
+      top: '12.5%', 
+      width: '11%',
       label: 'About Me',
       description: 'Get to know who I am',
       image: smiski1
     },
     { 
       id: 'smiski2', 
-      left: '21.5%', 
-      top: '8.5%', 
-      width: '11%',
+      left: '17%', 
+      top: '16%', 
+      width: '8.5%',
       label: 'Projects',
       description: 'My creative work',
       image: smiski2
     },
     { 
       id: 'smiski3', 
-      left: '30%', 
-      top: '12%', 
+      left: '24%', 
+      top: '16%', 
       width: '8.5%',
-      label: 'Photography',
-      description: 'Visual stories I capture',
+      label: 'Formula',
+      description: 'Northwestern University FSAE',
       image: smiski3
     },
     { 
       id: 'miffy', 
-      left: '43%', 
-      top: '7.5%', 
-      width: '12%',
+      left: '36.5%', 
+      top: '12.5%', 
+      width: '11%',
       label: 'Contact',
       description: 'Let\'s connect',
       image: miffy1
@@ -119,8 +120,8 @@ const ShelfPortfolio = () => {
     },
     { 
       id: 'usb', 
-      left: '32%', 
-      top: '34%', 
+      left: '27%', 
+      top: '37%', 
       width: '7.5%',
       label: 'Contact',
       description: 'Let\'s connect',
@@ -128,8 +129,8 @@ const ShelfPortfolio = () => {
     },
     { 
       id: 'digicam', 
-      left: '16%', 
-      top: '41%', 
+      left: '11%', 
+      top: '44%', 
       width: '23%',
       label: 'Blog',
       description: 'Thoughts and musings',
@@ -175,6 +176,9 @@ const ShelfPortfolio = () => {
       setCurrentPage('aboutme');
     } else if (item.label === 'Contact') {
       setCurrentPage('contact');
+    } else if (item.label === 'Formula') {
+      setCurrentPage('formula');
+      console.log('Navigating to FormulaPage'); // Debug log
     } else {
       console.log(`Navigating to: ${item.label}`);
       // Add other page navigation here later
@@ -189,6 +193,9 @@ const ShelfPortfolio = () => {
   }
   if (currentPage === 'contact') {
     return <Contact onBack={() => setCurrentPage('portfolio')} />;
+  }
+  if (currentPage === 'formula') {
+   return <FormulaPage onBack={() => setCurrentPage('portfolio')} />;
   }
 
   const styles = {
