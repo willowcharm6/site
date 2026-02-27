@@ -128,7 +128,7 @@ const FormulaPage = ({ onBack }) => {
 
   return (
     <div style={styles.container}>
-      <button onClick={onBack} style={styles.backButton}>← Back to Shelf</button>
+      <button onClick={onBack} style={styles.backButton}>← Back</button>
       
       <h1>FSAE Projects</h1>
 
