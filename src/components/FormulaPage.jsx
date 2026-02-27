@@ -55,7 +55,7 @@ const FormulaPage = ({ onBack }) => {
     }
   ];
 
-  const [carPos, setCarPos] = useState({ top: '10%', left: '55%', rotate: 20, scale: -1 });
+  const [carPos, setCarPos] = useState({ top: '9%', left: '55%', rotate: 8, scale: -1 });
   const [selectedProject, setSelectedProject] = useState(null);
   const [fullscreenImage, setFullscreenImage] = useState(null);
 
