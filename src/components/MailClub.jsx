@@ -74,9 +74,9 @@ const styles = {
     transition: 'transform 0.5s ease' 
   },
   letter: {
-    position: 'absolute', 
-    top: '1%',
-    left: '80%',
+    position: 'fixed', 
+    top: '22%',
+    left: '4%',
     zIndex: 1, 
     background: '#FDECD8', 
     padding: '20px',
@@ -84,7 +84,8 @@ const styles = {
     boxShadow: '5px 5px 15px rgba(0,0,0,0.1)',
     width: '250px', 
     transition: 'all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275)',
-    borderRadius: '4px'
+    borderRadius: '4px',
+    zIndex: 100
   },
   buttonGroup: { 
     display: 'flex', 
