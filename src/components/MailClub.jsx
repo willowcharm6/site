@@ -23,8 +23,12 @@ const MailClub = () => {
       <div style={styles.mailboxContainer} onClick={() => setIsOpen(!isOpen)}>
         <div style={{
           ...styles.letter,
-          transform: isOpen ? 'translateX(120px) scale(1)' : 'translateX(0) scale(0)',
-          opacity: isOpen ? 1 : 0
+          transform: isOpen 
+            ? 'translateX(-260px) scale(1)' 
+            : 'translateX(0px) scale(0)',
+          opacity: isOpen ? 1 : 0,
+          transformOrigin: 'right center', // The "Point" it grows from
+          pointerEvents: isOpen ? 'auto' : 'none',
         }}>
           <h3 style={{
             margin: '0 0 10px 0',
@@ -70,13 +74,12 @@ const styles = {
   },
   mailboxImg: { 
     width: '300px', 
-    zIndex: 2, 
     transition: 'transform 0.5s ease' 
   },
   letter: {
-    position: 'fixed', 
-    top: '22%',
-    left: '4%',
+    position: 'absolute', 
+    top: '1%',
+    left: '1%',
     zIndex: 1, 
     background: '#FDECD8', 
     padding: '20px',
