@@ -6,7 +6,7 @@ const MailClub = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   const STRIPE_SUB_LINK = "https://buy.stripe.com/dRmbJ29Lre91gQDdWd7kc01";
-  const STRIPE_ONCE_LINK = "https://buy.stripe.com/your_one_month_link";
+  const STRIPE_ONCE_LINK = "https://buy.stripe.com/8x27sM8Hn4yr1VJ2dv7kc02";
 
   return (
     <div style={styles.page}>
@@ -35,7 +35,7 @@ const MailClub = () => {
           }}>Get a physical letter every month!</p>
           <div style={styles.buttonGroup}>
             <a href={STRIPE_SUB_LINK} style={styles.stripeBtn}>Subscribe ($5/mo)</a>
-            <a href={STRIPE_ONCE_LINK} style={styles.stripeBtnSecondary}>This Month Only ($7)</a>
+            <a href={STRIPE_ONCE_LINK} style={styles.stripeBtnSecondary}>This Month Only ($6)</a>
           </div>
         </div>
 
