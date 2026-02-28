@@ -102,6 +102,7 @@ const styles = {
     height: '100vh', 
     width: '100vw', 
     display: 'flex', 
+    flexDirection: 'column',
     overflow: 'auto',
     alignItems: 'center', 
     justifyContent: 'center', 
@@ -166,7 +167,7 @@ const styles = {
     zIndex: 10 // Make sure it stays on top
   },
   donationSection: {
-    marginTop: '40px',
+    marginTop: '80px',
     textAlign: 'center',
     zIndex: 5,
     maxWidth: '80vw'
