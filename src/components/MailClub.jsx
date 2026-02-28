@@ -79,6 +79,20 @@ const MailClub = () => {
           }} 
         />
       </div>
+      <div style={styles.donationSection}>
+        <p style={styles.themeText}>March theme: <strong>Dream Big</strong></p>
+        <p style={styles.donationText}>
+          25% of profits go towards {' '}
+          <a 
+            href="https://www.thedream.us/" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            style={styles.donationLink}
+          >
+            thedream.us
+          </a>
+        </p>
+      </div>
     </div>
   ); 
 };
@@ -150,6 +164,32 @@ const styles = {
     fontSize: '1rem',
     color: '#6b7280',
     zIndex: 10 // Make sure it stays on top
+  },
+  donationSection: {
+    marginTop: '40px',
+    textAlign: 'center',
+    zIndex: 5,
+    maxWidth: '80vw'
+  },
+  themeText: {
+    fontSize: '1.1rem',
+    color: '#546A7B',
+    margin: '0 0 8px 0',
+    fontFamily: 'sans-serif'
+  },
+  donationText: {
+    fontSize: '0.9rem',
+    color: '#6b7280',
+    margin: 0,
+    lineHeight: '1.5'
+  },
+  donationLink: {
+    color: '#6D2E46',
+    textDecoration: 'none',
+    fontWeight: 'bold',
+    borderBottom: '2px solid #ba874b', // Subtle "tape" or "sticker" look
+    paddingBottom: '2px',
+    transition: 'all 0.2s ease'
   }
 };
 
