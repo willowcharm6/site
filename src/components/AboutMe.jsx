@@ -1,6 +1,8 @@
 import { useState, useRef, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const AboutMe = ({ onBack }) => {
+  const navigate = useNavigate();
   const containerRef = useRef(null);
   const animationRef = useRef(null);
   const [dragging, setDragging] = useState(null);
@@ -436,13 +438,12 @@ const AboutMe = ({ onBack }) => {
       top: '20px',
       left: '20px',
       zIndex: 10,
-      background: 'rgba(0, 0, 0, 0.7)',
-      color: 'white',
+      background: 'rgba(255, 255, 255, 0.7)',
+      color: 'black',
       border: 'none',
       padding: '10px 20px',
       borderRadius: '5px',
-      cursor: 'pointer',
-      fontSize: '14px'
+      cursor: 'pointer'    
     },
     title: {
       position: 'fixed',
@@ -569,12 +570,8 @@ const AboutMe = ({ onBack }) => {
       style={styles.container}
       onMouseMove={handleMouseMove}
     >
-      <button 
-        style={styles.backButton}
-        onClick={onBack}
-      >
-        ← Back
-      </button>
+      <button onClick={() => navigate('/')} style={styles.backButton}> ← Back</button>
+
 
       {photos.map(photo => (
         <div

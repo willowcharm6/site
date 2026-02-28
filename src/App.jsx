@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { BrowserRouter, Routes, Route, useNavigate } from 'react-router-dom';
 
 // Import your images
 import smiski1 from '/images/home/smiski1.png';
@@ -20,15 +21,24 @@ import Resume from './components/Resume';
 import AboutMe from './components/AboutMe';
 import Contact from './components/Contact';
 import FormulaPage from './components/FormulaPage';
+import MailClub from './components/MailClub';
+
+
+const App = () => {
+  return (
+    <BrowserRouter>
+      <ShelfPortfolio />
+    </BrowserRouter>
+  );
+};
 
 const ShelfPortfolio = () => {
+  const navigate = useNavigate(); // This will now work!
   const [hoveredItem, setHoveredItem] = useState(null);
-  const [currentPage, setCurrentPage] = useState('portfolio');
   const [windowSize, setWindowSize] = useState({
     width: window.innerWidth,
     height: window.innerHeight
   });
-
   // Track window resize
   useEffect(() => {
     const handleResize = () => {
@@ -50,17 +60,15 @@ const ShelfPortfolio = () => {
     const availableWidth = windowSize.width - padding;
     const availableHeight = windowSize.height - navHeight - padding;
     
-    // Adjust this to match your trinket-wall-bg.png aspect ratio
-    // Common ratios: 16/9, 4/3, 3/2, 16/10
-    const shelfAspectRatio = 4 / 3; // Change this to match your image
+    const shelfAspectRatio = 4 / 3; 
     
     const widthBasedHeight = availableWidth / shelfAspectRatio;
     const heightBasedWidth = availableHeight * shelfAspectRatio;
     
     if (widthBasedHeight <= availableHeight) {
       return {
-        width: Math.min(availableWidth, 1200), // Max width limit
-        height: Math.min(widthBasedHeight, 800) // Max height limit
+        width: Math.min(availableWidth, 1200), 
+        height: Math.min(widthBasedHeight, 800) 
       };
     } else {
       return {
@@ -80,7 +88,8 @@ const ShelfPortfolio = () => {
       width: '11%',
       label: 'About Me',
       description: 'Get to know who I am',
-      image: smiski1
+      image: smiski1,
+      path: '/aboutme '
     },
     { 
       id: 'smiski2', 
@@ -88,8 +97,9 @@ const ShelfPortfolio = () => {
       top: '16%', 
       width: '8.5%',
       label: 'Projects',
-      description: 'My creative work',
-      image: smiski2
+      description: 'Nothing here yet, but check back soon!',
+      image: smiski2,
+      // path: '/projects'
     },
     { 
       id: 'smiski3', 
@@ -98,7 +108,8 @@ const ShelfPortfolio = () => {
       width: '8.5%',
       label: 'Formula',
       description: 'Northwestern University FSAE',
-      image: smiski3
+      image: smiski3,
+      path: '/formula'
     },
     { 
       id: 'miffy', 
@@ -107,25 +118,28 @@ const ShelfPortfolio = () => {
       width: '11%',
       label: 'Contact',
       description: 'Let\'s connect',
-      image: miffy1
+      image: miffy1,
+      path: '/contact'
     },
     { 
       id: 'catbus', 
       left: '54%', 
       top: '6%', 
       width: '19%',
-      label: 'Contact',
-      description: 'Let\'s connect',
-      image: catbus
+      label: '?',
+      description: 'Nothing here yet, but check back soon!',
+      image: catbus,
+      //path: '/contact'
     },
     { 
       id: 'usb', 
       left: '27%', 
       top: '37%', 
       width: '7.5%',
-      label: 'Contact',
-      description: 'Let\'s connect',
-      image: usb
+      label: '?',
+      description: 'Nothing here yet, but check back soon!',
+      image: usb,
+      // path: '/contact'
     },
     { 
       id: 'digicam', 
@@ -133,8 +147,9 @@ const ShelfPortfolio = () => {
       top: '44%', 
       width: '23%',
       label: 'Blog',
-      description: 'Thoughts and musings',
-      image: digicam
+      description: 'Nothing here yet, but check back soon!',
+      image: digicam,
+      //path: '/blog'
     },
     { 
       id: 'snailshell1', 
@@ -143,16 +158,18 @@ const ShelfPortfolio = () => {
       width: '8%',
       label: 'Resume',
       description: 'Professional background',
-      image: snailshell1
+      image: snailshell1,
+      path: '/resume'
     },
     { 
       id: 'snailshell2', 
       left: '60.5%', 
       top: '56%', 
       width: '12%',
-      label: 'Gallery',
-      description: 'Creative collection',
-      image: snailshell2
+      label: 'MailClub',
+      description: 'Subscribe to my mail club!',
+      image: snailshell2,
+      path: '/mailclub'
     },
     { 
       id: 'sunglasses', 
@@ -160,47 +177,19 @@ const ShelfPortfolio = () => {
       top: '72%', 
       width: '14%',
       label: 'Gallery',
-      description: 'Creative collection',
-      image: sunglasses
+      description: 'Nothing here yet, but check back soon!',
+      image: sunglasses,
+      //path: '/gallery'
     }
   ];
 
   const handleItemClick = (item) => {
-    console.log('Clicked item:', item); // Debug log
-    console.log('Item label:', item.label); // Debug log
-    
-    if (item.label === 'Resume') {
-      setCurrentPage('resume');
-    }
-      else if (item.label === 'About Me') { 
-      setCurrentPage('aboutme');
-    } else if (item.label === 'Contact') {
-      setCurrentPage('contact');
-    } else if (item.label === 'Formula') {
-      setCurrentPage('formula');
-      console.log('Navigating to FormulaPage'); // Debug log
-    } else {
-      console.log(`Navigating to: ${item.label}`);
-      // Add other page navigation here later
-    }
+    navigate(item.path);
   };
-
-  if (currentPage === 'resume') {
-    return <Resume onBack={() => setCurrentPage('portfolio')} />;
-  }
-  if (currentPage === 'aboutme') {
-    return <AboutMe onBack={() => setCurrentPage('portfolio')} />;
-  }
-  if (currentPage === 'contact') {
-    return <Contact onBack={() => setCurrentPage('portfolio')} />;
-  }
-  if (currentPage === 'formula') {
-   return <FormulaPage onBack={() => setCurrentPage('portfolio')} />;
-  }
 
   const styles = {
     container: {
-      minHeight: '100vh',
+      height: '100vh',
       width: '100vw',
       background: '#ffffff',
       display: 'flex',
@@ -234,7 +223,7 @@ const ShelfPortfolio = () => {
       justifyContent: 'center',
       flex: 1,
       width: '100%',
-      minHeight: 0 // Important for flex sizing
+      minHeight: 0 
     },
     shelf: {
       position: 'relative',
@@ -320,42 +309,29 @@ const ShelfPortfolio = () => {
     }
   };
 
-  return (
-    
+  const ShelfView = (
     <div style={styles.container}>
-      {/* Navigation hint */}
       <div style={styles.navigation}>
         <p style={styles.navTitle}>Click on any item to explore</p>
         <p style={styles.navSubtitle}>Hover for details</p>
       </div>
-
-      {/* Shelf Container */}
       <div style={styles.shelfContainer}>
         <div style={styles.shelf}>
-          {/* Shelf Items */}
           {shelfItems.map((item) => (
             <div
               key={item.id}
               style={{
                 ...styles.shelfItem,
                 ...(hoveredItem?.id === item.id ? styles.shelfItemHover : {}),
-                left: item.left,
-                top: item.top,
-                width: item.width
+                left: item.left, top: item.top, width: item.width
               }}
               onClick={() => handleItemClick(item)}
               onMouseEnter={() => setHoveredItem(item)}
               onMouseLeave={() => setHoveredItem(null)}
             >
               <div style={styles.itemCircle}>
-                <img 
-                  src={item.image} 
-                  alt={item.label}
-                  style={styles.itemImage}
-                />
+                <img src={item.image} alt={item.label} style={styles.itemImage} />
               </div>
-              
-              {/* Hover tooltip */}
               {hoveredItem?.id === item.id && (
                 <div style={styles.tooltip}>
                   <div style={styles.tooltipTitle}>{item.label}</div>
@@ -367,8 +343,6 @@ const ShelfPortfolio = () => {
           ))}
         </div>
       </div>
-
-      {/* Current section indicator */}
       {hoveredItem && (
         <div style={styles.currentSection}>
           <span style={styles.sectionText}>{hoveredItem.label}</span>
@@ -376,6 +350,17 @@ const ShelfPortfolio = () => {
       )}
     </div>
   );
+
+  return (
+    <Routes>
+      <Route path="/" element={ShelfView} />
+      <Route path="/resume" element={<Resume />} />
+      <Route path="/aboutme" element={<AboutMe />} />
+      <Route path="/contact" element={<Contact />} />
+      <Route path="/formula" element={<FormulaPage />} />
+      <Route path="/mailclub" element={<MailClub />} />
+    </Routes>
+  );
 };
 
-export default ShelfPortfolio;
+export default App;

@@ -1,6 +1,8 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 
-const Resume = ({ onBack }) => {
+const Resume = () => {
+  const navigate = useNavigate();
   const styles = {
     container: {
       width: '100vw',
@@ -10,16 +12,14 @@ const Resume = ({ onBack }) => {
     },
     backButton: {
       position: 'absolute',
-      top: '20px',
+      top: '50px',
       left: '20px',
-      zIndex: 10,
-      background: 'rgba(0, 0, 0, 0.7)',
-      color: 'white',
-      border: 'none',
       padding: '10px 20px',
-      borderRadius: '5px',
       cursor: 'pointer',
-      fontSize: '14px'
+      zIndex: 100,
+      background: 'white',
+      borderRadius: '8px',
+      color: '#000000',
     },
     iframe: {
       width: '100%',
@@ -31,12 +31,7 @@ const Resume = ({ onBack }) => {
 
   return (
     <div style={styles.container}>
-      <button 
-        style={styles.backButton}
-        onClick={onBack}
-      >
-        ← Back
-      </button>
+      <button onClick={() => navigate('/')} style={styles.backButton}>← Back</button>
       <iframe 
         src="/resume/Charmaine_Guo_Resume.pdf"
         style={styles.iframe}

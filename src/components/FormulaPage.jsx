@@ -1,6 +1,9 @@
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
-const FormulaPage = ({ onBack }) => {
+
+const FormulaPage = () => {
+  const navigate = useNavigate();
   const projects = [
     {
       id: 1,
@@ -55,47 +58,66 @@ const FormulaPage = ({ onBack }) => {
     }
   ];
 
-  const [carPos, setCarPos] = useState({ top: '9%', left: '55%', rotate: 8, scale: -1 });
+  const [carPos, setCarPos] = useState({ top: '13%', left: '70%', rotate: 35, scale: -1 });
   const [selectedProject, setSelectedProject] = useState(null);
   const [fullscreenImage, setFullscreenImage] = useState(null);
 
   const handleConeClick = (project) => {
+    if (selectedProject?.id === project.id) {
+      setSelectedProject(null);
+      return;
+    }
+
     const topNum = parseFloat(project.top);
     const leftNum = parseFloat(project.left);
+    
+    const isOnRightSide = leftNum > 50;
+    console.log(`Project ${project.id} is on the ${isOnRightSide ? 'right' : 'left'} side of the track.`);
+    const boxXTransform = isOnRightSide ? '-115%' : '15%';
+
     setCarPos({
       top: `${topNum + (project.offsetY || 5)}%`,
       left: `${leftNum + (project.offsetX || 0)}%`,
       rotate: project.rotation,
       scale: project.scale || 1
     });
-    setSelectedProject(project);
+    setSelectedProject({...project, boxTransform: boxXTransform});
   };
 
   const styles = {
     container: {
       width: '100vw',
-      minheight: '100vh',
+      height: '100vh',
       backgroundColor: 'white',
       position: 'relative',
       overflow: 'auto',
       display: 'flex',
       flexDirection: 'column',
       alignItems: 'center',
-      fontFamily: 'sans-serif'
+      fontFamily: 'sans-serif',
+      paddingBottom: '100px'
     },
-    title: { color: 'black', zIndex: 10 },
+    title: { 
+      color: 'black', 
+      zIndex: 10,
+      fontSize: 'calc(1rem + 2vw)',
+      textAlign: 'center',
+      margin: '40px 0 20px 0'
+    },
     backButton: {
-      position: 'absolute',
+      position: 'fixed',
       top: '20px',
       left: '20px',
       padding: '10px 20px',
       cursor: 'pointer',
-      zIndex: 100
+      zIndex: 500,
+      backgroundColor: 'white',
+      color: 'black'
     },
     trackContainer: {
       position: 'relative',
       width: '50%',
-      height: '70%',
+      // height: '70%',
       marginTop: '20px',
       display: 'flex',
       justifyContent: 'center',
@@ -113,7 +135,8 @@ const FormulaPage = ({ onBack }) => {
       transform: `translate(-50%, -50%) rotate(${carPos.rotate}deg) scaleX(${carPos.scale})`,
       left: carPos.left,
       top: carPos.top,
-      zIndex: 5
+      zIndex: 5,
+      pointerEvents: 'none' 
     },
     cone: {
       position: 'absolute',
@@ -135,7 +158,7 @@ const FormulaPage = ({ onBack }) => {
       flexDirection: 'column',
       gap: '10px',
       border: '1px solid #ccc',
-      color: 'white' // Ensured title/text is readable against dark background
+      color: 'white' 
     },
     imageGallery: {
       display: 'flex',
@@ -168,7 +191,7 @@ const FormulaPage = ({ onBack }) => {
       cursor: 'zoom-out'
     },
     fullscreenImg: {
-      width: '50%', // Using your preferred width
+      width: '50%', 
       height: 'auto', 
       objectFit: 'contain',
       borderRadius: '12px',
@@ -178,11 +201,11 @@ const FormulaPage = ({ onBack }) => {
     },
     closeButton: {
       position: 'absolute',
-      top: '30px',      // Fixed distance from top of gray screen
-      right: '30px',    // Fixed distance from right of gray screen
+      top: '30px',      
+      right: '30px',    
       background: 'white',
       border: 'none',
-      borderRadius: '50%',
+      borderRadius: '20%',
       width: '40px',
       height: '40px',
       color: 'black',
@@ -199,7 +222,8 @@ const FormulaPage = ({ onBack }) => {
 
   return (
     <div style={styles.container}>
-      <button onClick={onBack} style={styles.backButton}>← Back</button>
+      <button onClick={() => navigate('/')} style={styles.backButton}> ← Back</button>
+
       <h1 style={styles.title}>2025 FSAE Projects</h1>
 
       <div style={styles.trackContainer}>
@@ -223,24 +247,19 @@ const FormulaPage = ({ onBack }) => {
             ...styles.infoBox,
             top: selectedProject.top,
             left: selectedProject.left,
-            transform: 'translate(15%, -50%)'
+            transform: `translate(${selectedProject.boxTransform}, -50%)`
           }}>
             <div style={styles.imageGallery}>
               {selectedProject.images && selectedProject.images.map((imgSrc, index) => (
                 <img
                   key={index}
                   src={imgSrc}
-                  alt={`${selectedProject.title} ${index}`}
+                  alt="project"
                   onClick={(e) => {
-                    e.stopPropagation(); // Stop click from closing box immediately
+                    e.stopPropagation();
                     setFullscreenImage(imgSrc);
                   }}
-                  style={{
-                    ...styles.projectImage,
-                    width: selectedProject.images.length > 1 ? '90%' : '100%'
-                  }}
-                  onMouseOver={(e) => e.currentTarget.style.transform = 'scale(1.05)'}
-                  onMouseOut={(e) => e.currentTarget.style.transform = 'scale(1)'}
+                  style={styles.projectImage}
                 />
               ))}
             </div>
