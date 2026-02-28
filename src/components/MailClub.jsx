@@ -1,12 +1,40 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 const MailClub = () => {
   const navigate = useNavigate();
   const [isOpen, setIsOpen] = useState(false);
+  const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
+
+  // Track screen width to swap animation direction
+  useEffect(() => {
+    const handleResize = () => setIsMobile(window.innerWidth < 768);
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   const STRIPE_SUB_LINK = "https://buy.stripe.com/dRmbJ29Lre91gQDdWd7kc01";
   const STRIPE_ONCE_LINK = "https://buy.stripe.com/8x27sM8Hn4yr1VJ2dv7kc02";
+
+  // Desktop: Slide left (-110%) and center vertically
+  // Mobile: Slide up (-110%) and center horizontally
+  const getTransform = () => {
+    if (!isOpen) {
+      // When closed, we stay at scale(0) so it shrinks to a point
+      return 'translate(0, 0) scale(0)';
+    }
+    
+    // When open, we slide AND scale to 1
+    if (isMobile) {
+      return 'translateY(110%) scale(1)'; 
+    }
+    return 'translateX(-110%) scale(1)'; 
+  };
+
+  const getOrigin = () => {
+    if (isMobile) return 'top center'; // Grow from the top of the mailbox
+    return 'right center'; // Grow from the side of the mailbox
+  };
 
   return (
     <div style={styles.page}>
@@ -21,13 +49,12 @@ const MailClub = () => {
       }}>You have mail!</h3>
 
       <div style={styles.mailboxContainer} onClick={() => setIsOpen(!isOpen)}>
+        
         <div style={{
           ...styles.letter,
-          transform: isOpen 
-            ? 'translateX(-260px) scale(1)' 
-            : 'translateX(0px) scale(0)',
+          transform: getTransform(),
+          transformOrigin: getOrigin(),
           opacity: isOpen ? 1 : 0,
-          transformOrigin: 'right center', // The "Point" it grows from
           pointerEvents: isOpen ? 'auto' : 'none',
         }}>
           <h3 style={{
@@ -61,10 +88,11 @@ const styles = {
     height: '100vh', 
     width: '100vw', 
     display: 'flex', 
+    overflow: 'auto',
     alignItems: 'center', 
     justifyContent: 'center', 
     background: '#f9f9f9',
-    position: 'relative' // Added this to make the absolute back button stay in place
+    position: 'relative' 
   },
   mailboxContainer: { 
     position: 'relative', 
@@ -78,14 +106,14 @@ const styles = {
   },
   letter: {
     position: 'absolute', 
-    top: '1%',
-    left: '1%',
+    bottom: '50%',
+    right: '10%',
     zIndex: 1, 
     background: '#FDECD8', 
     padding: '20px',
     border: '1px solid #ddd', 
     boxShadow: '5px 5px 15px rgba(0,0,0,0.1)',
-    width: '250px', 
+    width: 'min(280px, 60vw)',
     transition: 'all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275)',
     borderRadius: '4px',
     zIndex: 100
