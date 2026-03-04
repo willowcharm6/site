@@ -1,6 +1,79 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
+  const testimonials = [
+    { id: 1, name: "Anonymous Nomination for Executive Board", quote: "Charmaine is a fantastic leader. She is organized, direct others wonderfully, and is very devoted to the club. She has hands-on experience manufacturing the harness, and has a good understanding of the electrical systems within the car. This past year, she's developed her skills in PCB design and bring up by working on PDM. I believe that her experience gives her the technical capabilities to guide the development of VCU, PDM and harness. Having worked on the harness for two years, I'm certain that she has many ideas on how to improve the architecture of the car to optimize for manufacturing and maintainability of harness.", time: "1:14.203" },
+    { id: 2, name: "Anonymous Nomination for Executive Board", quote: "Charmaine has really impressed me with how she's been tackling the harness. I think that she has recognized the state it's in and has been really driving at leading members of LV to get that work accomplished. She has more board knowledge now having some experience with PDM, and a lot of knowledge about the overall structure of the car from harness. She is also such a people person it's crazy. I think that the chudlings exist in large part because she brought them together. I would love to see what LV or DAQ would look like under her direction.", time: "1:14.550" },
+    { id: 3, name: "Anonymous Nomination for Executive Board", quote: "She's so knowledgeable and dedicated to the team and is always willing to do the not so pretty, but necessary work to make our car successful (harness lol). She has amazing people skills and can lead a group of people really well. She would be an amazing asset to the exec board next year.", time: "1:15.012" },
+    // { id: 4, name: "Manufacturing Lead", quote: "Design for manufacturing was spot on this season.", time: "1:15.889" }
+  ];
+
+const LapTimerBoard = () => {
+    const styles = {
+      board: {
+        backgroundColor: 'rgba(0, 0, 0, 0.85)',
+        color: '#00ff00', // Classic "Racing Green" or Matrix-style digital green
+        fontFamily: '"Courier New", Courier, monospace',
+        padding: '20px',
+        borderRadius: '8px',
+        border: '2px solid #333',
+        width: '100%',
+        maxWidth: '900px',
+        boxShadow: '0 0 20px rgba(0, 255, 0, 0.1)',
+        marginTop: '30px'
+      },
+      header: {
+        borderBottom: '1px solid #333',
+        paddingBottom: '10px',
+        marginBottom: '15px',
+        display: 'flex',
+        justifyContent: 'space-between',
+        fontSize: '0.8rem',
+        textTransform: 'uppercase',
+        color: '#aaa'
+      },
+      row: {
+        display: 'flex',
+        justifyContent: 'space-between',
+        alignItems: 'center',
+        padding: '8px 0',
+        borderBottom: '1px solid #222'
+      },
+      name: {
+        fontWeight: 'bold',
+        width: '30%'
+      },
+      quote: {
+        fontSize: '0.9rem',
+        fontStyle: 'italic',
+        color: '#fff',
+        width: '50%',
+        paddingRight: '10px'
+      },
+      time: {
+        color: '#ffff00', // Yellow for the "time"
+        width: '20%',
+        textAlign: 'right'
+      }
+    };
+
+    return (
+      <div style={styles.board}>
+        <div style={styles.header}>
+          <span>Pos / Driver</span>
+          <span>Review / Feedback</span>
+          <span>Lap Time</span>
+        </div>
+        {testimonials.map((t, index) => (
+          <div key={t.id} style={styles.row}>
+            <span style={styles.name}>{index + 1}. {t.name}</span>
+            <span style={styles.quote}>"{t.quote}"</span>
+            <span style={styles.time}>{t.time}</span>
+          </div>
+        ))}
+      </div>
+    );
+  };
 
 const FormulaPage = () => {
   const navigate = useNavigate();
@@ -62,6 +135,7 @@ const FormulaPage = () => {
   const [selectedProject, setSelectedProject] = useState(null);
   const [fullscreenImage, setFullscreenImage] = useState(null);
 
+
   const handleConeClick = (project) => {
     if (selectedProject?.id === project.id) {
       setSelectedProject(null);
@@ -84,18 +158,20 @@ const FormulaPage = () => {
     setSelectedProject({...project, boxTransform: boxXTransform});
   };
 
+  
   const styles = {
     container: {
       width: '100vw',
-      height: '100vh',
-      backgroundColor: 'white',
-      position: 'relative',
-      overflow: 'auto',
-      display: 'flex',
-      flexDirection: 'column',
-      alignItems: 'center',
-      fontFamily: 'sans-serif',
-      paddingBottom: '100px'
+    minHeight: '100vh', // Changed from height: '100vh'
+    backgroundColor: '#ffffff', // Explicit white
+    position: 'relative',
+    overflowX: 'hidden',
+    overflowY: 'auto', // Allows scrolling down to the board
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+    fontFamily: 'sans-serif',
+    paddingBottom: '100px' // Space at the very bottom
     },
     title: { 
       color: 'black', 
@@ -289,6 +365,8 @@ const FormulaPage = () => {
         )}
       </div>
 
+      <LapTimerBoard />
+
       {/* Fullscreen Overlay */}
       {fullscreenImage && (
         <div style={styles.overlay} onClick={() => setFullscreenImage(null)}>
@@ -313,5 +391,7 @@ const FormulaPage = () => {
     </div>
   );
 };
+
+
 
 export default FormulaPage;
