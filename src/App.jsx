@@ -22,7 +22,8 @@ import AboutMe from './components/AboutMe';
 import Contact from './components/Contact';
 import FormulaPage from './components/FormulaPage';
 import MailClub from './components/MailClub';
-
+import Aquarium from './components/Aquarium';
+import DrawFish from './components/DrawFish';
 
 const App = () => {
   return (
@@ -126,20 +127,20 @@ const ShelfPortfolio = () => {
       left: '48%', 
       top: '10%', 
       width: '18%',
-      label: '?',
-      description: 'Nothing here yet, but check back soon!',
+      label: 'Draw a Fish',
+      description: 'Draw your own fish and add it to the aquarium!',
       image: catbus,
-      //path: '/contact'
+      path: '/drawfish'
     },
     { 
       id: 'usb', 
       left: '27%', 
       top: '37%', 
       width: '7.5%',
-      label: '?',
-      description: 'Nothing here yet, but check back soon!',
+      label: 'Aquarium | UNDER CONSTRUCTION',
+      description: 'Add a fish to the aquarium!',
       image: usb,
-      // path: '/contact'
+      path: '/aquarium'
     },
     { 
       id: 'digicam', 
@@ -359,6 +360,9 @@ const ShelfPortfolio = () => {
       <Route path="/contact" element={<Contact />} />
       <Route path="/formula" element={<FormulaPage />} />
       <Route path="/mailclub" element={<MailClub />} />
+      <Route path="/aquarium" element={<Aquarium />} />
+      <Route path="/drawfish" element={<DrawFish />} />
+
     </Routes>
   );
 };
