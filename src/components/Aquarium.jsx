@@ -16,7 +16,7 @@ const Aquarium = () => {
       const data = snapshot.val();
       if (data) {
         // Convert object to array and keep only last 10
-        const fishArray = Object.values(data).slice(-10);
+        const fishArray = Object.values(data).slice(-20);
         setFish(fishArray);
       } else {
         setFish([]);
@@ -79,7 +79,7 @@ const Aquarium = () => {
 
       {/* Fish counter */}
       <div style={styles.counter}>
-        {fish.length} / 10 fish
+        {fish.length} / 20 fish
       </div>
 
       <style>
