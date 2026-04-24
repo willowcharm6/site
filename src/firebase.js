@@ -1,8 +1,6 @@
-console.log("My Project ID is:", import.meta.env.VITE_FIREBASE_PROJECT_ID);
-
 // src/firebase.js
 import { initializeApp } from 'firebase/app';
-import { getDatabase } from 'firebase/database';
+import { getDatabase } from "firebase/database";
 import { getAnalytics } from "firebase/analytics";
 
 // Your web app's Firebase configuration
@@ -18,11 +16,10 @@ const firebaseConfig = {
 };
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
-console.log("App initialized:", app.options.projectId);
 const analytics = getAnalytics(app);
 
 // Initialize Realtime Database
-export const database = getDatabase(app);
+const database = getDatabase(app);
 
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
