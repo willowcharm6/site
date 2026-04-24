@@ -1,6 +1,6 @@
 import React, { useRef, useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { ref, set, onValue, push } from 'firebase/database';
+import { ref, set, onValue, push, remove, get } from 'firebase/database'; // Added 'remove' and 'get'
 import { database } from '../firebase';
 
 const DrawFish = () => {
@@ -14,26 +14,18 @@ const DrawFish = () => {
   useEffect(() => {
     const canvas = canvasRef.current;
     if (!canvas) return;
-
     const ctx = canvas.getContext('2d');
     
-    // Set canvas size
     canvas.width = Math.min(600, window.innerWidth - 40);
     canvas.height = Math.min(600, window.innerHeight - 300);
 
-    // White background
-    ctx.fillStyle = 'white';
-    ctx.fillRect(0, 0, canvas.width, canvas.height);
+    // REMOVED: ctx.fillStyle = 'white'; ctx.fillRect(...) 
+    // We want it transparent!
 
-    // Listen to fish count from Firebase
     const fishRef = ref(database, 'aquarium/fish');
     const unsubscribe = onValue(fishRef, (snapshot) => {
       const data = snapshot.val();
-      if (data) {
-        setFishCount(Object.keys(data).length);
-      } else {
-        setFishCount(0);
-      }
+      setFishCount(data ? Object.keys(data).length : 0);
     });
 
     return () => unsubscribe();
@@ -46,8 +38,7 @@ const DrawFish = () => {
 
   const stopDrawing = () => {
     setIsDrawing(false);
-    const canvas = canvasRef.current;
-    const ctx = canvas.getContext('2d');
+    const ctx = canvasRef.current.getContext('2d');
     ctx.beginPath();
   };
 
@@ -80,64 +71,54 @@ const DrawFish = () => {
   const clearCanvas = () => {
     const canvas = canvasRef.current;
     const ctx = canvas.getContext('2d');
-    ctx.fillStyle = 'white';
-    ctx.fillRect(0, 0, canvas.width, canvas.height);
+    // Clear back to transparency
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
   };
 
   const saveFish = async () => {
-    // Check if we're at max capacity
-    if (fishCount >= 10) {
-      alert('The aquarium is full! (Max 10 fish)');
-      return;
-    }
-
     const canvas = canvasRef.current;
-    
-    // Convert canvas to data URL
     const imageUrl = canvas.toDataURL('image/png');
     
-    // Create new fish object
-    const newFish = {
-      id: Date.now() + Math.random(),
-      imageUrl: imageUrl,
-      timestamp: Date.now(),
-    };
-
     try {
-      // Get reference to the fish list
       const fishRef = ref(database, 'aquarium/fish');
       
-      // Push new fish to Firebase
+      // LOGIC: If 10 or more fish, delete the oldest one first
+      if (fishCount >= 10) {
+        const snapshot = await get(fishRef);
+        if (snapshot.exists()) {
+          const data = snapshot.val();
+          // Firebase keys are chronological, so the first key is the oldest
+          const oldestFishKey = Object.keys(data)[0];
+          await remove(ref(database, `aquarium/fish/${oldestFishKey}`));
+        }
+      }
+
+      const newFish = {
+        id: Date.now() + Math.random(),
+        imageUrl: imageUrl,
+        timestamp: Date.now(),
+      };
+
       const newFishRef = push(fishRef);
       await set(newFishRef, newFish);
 
-      // Show success message and navigate
-      alert('Fish added to the aquarium! 🐠');
-      clearCanvas(); // Clear the canvas for next drawing
+      // AUTO REDIRECT instead of alert
+      navigate('/aquarium');
       
-      // Optional: navigate back to aquarium
-      // navigate('/aquarium');
     } catch (error) {
       console.error('Error saving fish:', error);
-      alert('Oops! Could not add fish. Check your internet connection.');
+      alert('Oops! Check your database rules/connection.');
     }
   };
 
-  const colors = [
-    '#FF6B9D', '#FFA06B', '#FFD56B', '#6BFF9D', 
-    '#6B9DFF', '#9D6BFF', '#FF6BFF', '#6BFFFF'
-  ];
+  const colors = ['#FF6B9D', '#FFA06B', '#FFD56B', '#6BFF9D', '#6B9DFF', '#9D6BFF', '#FF6BFF', '#6BFFFF'];
 
   return (
     <div style={styles.page}>
-      <button onClick={() => navigate('/aquarium')} style={styles.backButton}>
-        ← Back to Aquarium
-      </button>
-
+      <button onClick={() => navigate('/aquarium')} style={styles.backButton}>← Back</button>
       <h1 style={styles.title}>Draw Your Fish! 🐠</h1>
-      <p style={styles.subtitle}>Use your finger or mouse to draw</p>
-
-      <div style={styles.canvasContainer}>
+      
+      <div style={{...styles.canvasContainer, background: 'rgba(255,255,255,0.1)', border: '2px dashed white'}}>
         <canvas
           ref={canvasRef}
           onMouseDown={startDrawing}
@@ -152,48 +133,23 @@ const DrawFish = () => {
       </div>
 
       <div style={styles.controls}>
-        <div style={styles.colorPicker}>
-          <p style={styles.label}>Pick a color:</p>
-          <div style={styles.colorGrid}>
-            {colors.map(c => (
-              <button
-                key={c}
-                onClick={() => setColor(c)}
-                style={{
-                  ...styles.colorButton,
-                  background: c,
-                  border: color === c ? '4px solid white' : '2px solid rgba(255,255,255,0.3)',
-                  transform: color === c ? 'scale(1.1)' : 'scale(1)',
-                }}
-              />
-            ))}
-          </div>
+        <div style={styles.colorGrid}>
+          {colors.map(c => (
+            <button key={c} onClick={() => setColor(c)} style={{...styles.colorButton, background: c, border: color === c ? '4px solid white' : 'none'}} />
+          ))}
         </div>
-
-        <div style={styles.brushControl}>
-          <p style={styles.label}>Brush size: {brushSize}px</p>
-          <input
-            type="range"
-            min="2"
-            max="20"
-            value={brushSize}
-            onChange={(e) => setBrushSize(parseInt(e.target.value))}
-            style={styles.slider}
-          />
-        </div>
+        <input type="range" min="2" max="20" value={brushSize} onChange={(e) => setBrushSize(parseInt(e.target.value))} style={styles.slider} />
       </div>
 
       <div style={styles.actionButtons}>
-        <button onClick={clearCanvas} style={styles.clearButton}>
-          🗑️ Clear
-        </button>
-        <button onClick={saveFish} style={styles.saveButton}>
-          ✨ Add to Aquarium ({fishCount}/10)
-        </button>
+        <button onClick={clearCanvas} style={styles.clearButton}>🗑️ Clear</button>
+        <button onClick={saveFish} style={styles.saveButton}>✨ Set it Free!</button>
       </div>
     </div>
   );
 };
+
+// ... keep your existing styles, but maybe update canvasContainer to look cooler with transparency
 
 const styles = {
   page: {
