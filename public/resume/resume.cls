@@ -50,10 +50,10 @@
 \usepackage{geometry} % Required for adjusting page dimensions and margins
 
 \geometry{
-	top=0.6in, % Top margin
+	top=0.2in, % Top margin
 	bottom=0.6in, % Bottom margin
-	left=0.75in, % Left margin
-	right=0.75in, % Right margin
+	left=0.2in, % Left margin
+	right=0.2in, % Right margin
 	%showframe, % Uncomment to show how the type block is set on the page
 }
 
@@ -97,7 +97,7 @@
 \newcommand{\printname}{
 	\begingroup
 		\hfil{\MakeUppercase{\huge\bfseries\name}}\hfil % Style and output the user's name
-		\bigskip\break % Vertical whitespace below name
+		\smallskip\break % Vertical whitespace below name
 	\endgroup
 }
 
@@ -120,7 +120,7 @@
 
 % Defines the rSection environment for the major sections within the CV
 \newenvironment{rSection}[1]{ % The single parameter is for the section title
-	\medskip % Vertical whitespace
+	% \medskip % Vertical whitespace
 	\MakeUppercase{\textbf{#1}} % Section title
 	\medskip % Vertical whitespace
 	\hrule % Horizontal rule
@@ -147,5 +147,5 @@
 		\setlength{\itemsep}{-0.5em} \vspace{-0.5em} % Reduce vertical spacing between items in the list for a tighter look
 }{
 	\end{list}
-	\vspace{0.5em} % Vertical whitespace after the end of the list
+	% \vspace{0.1em} % Vertical whitespace after the end of the list
 }
